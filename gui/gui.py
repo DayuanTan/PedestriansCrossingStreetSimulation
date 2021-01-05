@@ -57,16 +57,16 @@ children_amount_rl_entry = tk.Entry(frame, width = 3)
 children_amount_rl_entry.place(relx=0.88, rely=0.69, anchor = "w")
 
 
+zebra_area_width = 0
+zebra_area_length = 0
+ped_amount_lr = 0
+ped_amount_rl = 0
+wheelchair_amount_lr = 0
+wheelchair_amount_rl = 0
+children_amount_lr = 0
+children_amount_rl = 0
 
 def param_save_button_func():
-    global zebra_area_width
-    global zebra_area_length
-    global ped_amount_lr
-    global ped_amount_rl
-    global wheelchair_amount_lr
-    global wheelchair_amount_rl
-    global children_amount_lr
-    global children_amount_rl
     zebra_area_width = zebra_area_width_entry.get()
     zebra_area_length = zebra_area_length_entry.get()
     ped_amount_lr = ped_amount_lr_entry.get()
@@ -75,13 +75,13 @@ def param_save_button_func():
     wheelchair_amount_rl = wheelchair_amount_rl_entry.get()
     children_amount_lr = children_amount_lr_entry.get()
     children_amount_rl = children_amount_rl_entry.get()
-    param_saved_label = tk.Label(frame, text="Parameters applied. Width: " + zebra_area_width + " Length: " + zebra_area_length)
+    param_saved_label = tk.Label(frame, text="Parameters applied. Width: " + zebra_area_width + " Length: " + zebra_area_length + " p: " + ped_amount_lr)
     param_saved_label.place(relx=0, rely=0.76, anchor = "w")
 
+    crossing_moving(ped_amount_lr)
 
 
-
-save_button = tk.Button(frame, text = "Apply all parameters", command = param_save_button_func)
+save_button = tk.Button(frame, text = "Run", command = param_save_button_func)
 save_button.place(relx=0.0, rely=0.83, anchor = "w")
 
 
@@ -97,26 +97,44 @@ cartoon_frame.configure(height=cartoon_frame["height"],width=cartoon_frame["widt
 cartoon_frame.grid_propagate(0)
 
 # curb
-curb_canvas = tk.Canvas(cartoon_frame, height = 400, width = 1040, bg = '#afeeee')
-curb_canvas.create_rectangle(200, 20, 210, 300, fill = "gray", outline = "gray")
-curb_canvas.create_rectangle(800, 20, 810, 300, fill = "gray", outline = "gray")
-curb_canvas.create_arc(105, 250, 205, 350, fill = "red", start = 270, style=tk.ARC, outline = "gray", width = 10)
-curb_canvas.create_arc(805, 250, 905, 350, fill = "red", start = 180, style=tk.ARC, outline = "gray", width = 10)
-curb_canvas.place(relx = 0.05, rely = 0.1)
+def setup_curb_canvas():
+    curb_canvas = tk.Canvas(cartoon_frame, height = 400, width = 1040, bg = '#afeeee')
+    curb_canvas.create_rectangle(200, 20, 210, 300, fill = "gray", outline = "gray")
+    curb_canvas.create_rectangle(800, 20, 810, 300, fill = "gray", outline = "gray")
+    curb_canvas.create_arc(105, 250, 205, 350, fill = "red", start = 270, style=tk.ARC, outline = "gray", width = 10)
+    curb_canvas.create_arc(805, 250, 905, 350, fill = "red", start = 180, style=tk.ARC, outline = "gray", width = 10)
+    curb_canvas.place(relx = 0.05, rely = 0.1)
 
 # zebra
-zebra_canvas = tk.Canvas(cartoon_frame, height = 200, width = 577, bg = 'yellow')
-zebra_canvas.create_rectangle(25, 0, 55, 200, fill = "lightgray", outline = "lightgray")
-zebra_canvas.create_rectangle(85, 0, 115, 200, fill = "lightgray", outline = "lightgray")
-zebra_canvas.create_rectangle(145, 0, 175, 200, fill = "lightgray", outline = "lightgray")
-zebra_canvas.create_rectangle(205, 0, 235, 200, fill = "lightgray", outline = "lightgray")
-zebra_canvas.create_rectangle(265, 0, 295, 200, fill = "lightgray", outline = "lightgray")
-zebra_canvas.create_rectangle(325, 0, 355, 200, fill = "lightgray", outline = "lightgray")
-zebra_canvas.create_rectangle(385, 0, 415, 200, fill = "lightgray", outline = "lightgray")
-zebra_canvas.create_rectangle(445, 0, 475, 200, fill = "lightgray", outline = "lightgray")
-zebra_canvas.create_rectangle(505, 0, 535, 200, fill = "lightgray", outline = "lightgray")
-zebra_canvas.create_rectangle(565, 0, 595, 200, fill = "lightgray", outline = "lightgray")
-zebra_canvas.place(relx = 0.235, rely = 0.26)
+def setup_zebra_canvas():
+    zebra_canvas = tk.Canvas(cartoon_frame, height = 200, width = 577, bg = 'yellow')
+    zebra_canvas.create_rectangle(25, 0, 55, 200, fill = "lightgray", outline = "lightgray")
+    zebra_canvas.create_rectangle(85, 0, 115, 200, fill = "lightgray", outline = "lightgray")
+    zebra_canvas.create_rectangle(145, 0, 175, 200, fill = "lightgray", outline = "lightgray")
+    zebra_canvas.create_rectangle(205, 0, 235, 200, fill = "lightgray", outline = "lightgray")
+    zebra_canvas.create_rectangle(265, 0, 295, 200, fill = "lightgray", outline = "lightgray")
+    zebra_canvas.create_rectangle(325, 0, 355, 200, fill = "lightgray", outline = "lightgray")
+    zebra_canvas.create_rectangle(385, 0, 415, 200, fill = "lightgray", outline = "lightgray")
+    zebra_canvas.create_rectangle(445, 0, 475, 200, fill = "lightgray", outline = "lightgray")
+    zebra_canvas.create_rectangle(505, 0, 535, 200, fill = "lightgray", outline = "lightgray")
+    zebra_canvas.create_rectangle(565, 0, 595, 200, fill = "lightgray", outline = "lightgray")
+    zebra_canvas.place(relx = 0.235, rely = 0.26)
+
+setup_curb_canvas()
+setup_zebra_canvas()
+
+# crossing moving area
+crossing_area_canvas = tk.Canvas(cartoon_frame, height=200, width=880, bg='green')
+ped_lr_img = tk.PhotoImage(file="img/ped_lr.png")
+
+def crossing_moving(ped_amount_lr):
+    for i in range(0, int(ped_amount_lr)):
+        crossing_area_canvas.create_image(1 + 10 * i, 1, image=ped_lr_img, anchor=tk.NW)
+    # crossing_area_canvas.create_image(13, 1, image = ped_lr_img, anchor = tk.NW)
+    crossing_area_canvas.place(relx = 0.1, rely = 0.26)
+    print(crossing_area_canvas.size)
+
+
 
 
 root.mainloop()
