@@ -15,7 +15,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gui.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="545">
+            <state relative-caret-position="698">
               <caret line="328" column="15" lean-forward="true" selection-start-line="328" selection-start-column="15" selection-end-line="328" selection-end-column="15" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
@@ -138,7 +138,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.17936695" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.17936695" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39976552" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -162,7 +162,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gui.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="545">
+        <state relative-caret-position="698">
           <caret line="328" column="15" lean-forward="true" selection-start-line="328" selection-start-column="15" selection-end-line="328" selection-end-column="15" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
