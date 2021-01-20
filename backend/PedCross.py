@@ -1,4 +1,5 @@
 import random 
+import math
 
 ZEBRA_AREA_WIDTH = 300 #cm
 ZEBRA_AREA_LENGTH = 1000 #cm
@@ -40,7 +41,19 @@ class Ped:
             return True
         return False
 
+    def is_newspace_conflict(self, newx: int, newy: int, another: Ped):
+        # newx = self.x + self.velocity if self.direction == "left2right" else self.x - self.velocity
+        distance = math.sqrt((newx - another.x)^2 + (newy - another.y)^2)
+        if distance <= self.radius + another.radius:
+            return True
+        return False
+
     def move_one_second(self):
-        
+        newx = self.x + self.velocity if self.direction == "left2right" else self.x - self.velocity
+        newy = self.y
+        if (is_newspace_conflict(newx, newy, ))
+        if self.direction == "left2right":
+            self.x = self.x + self.velocity
+
 
 
