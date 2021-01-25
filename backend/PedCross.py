@@ -18,7 +18,7 @@ RADIUS_OF_SPACE_OCCUPIED = {
 }
 
 class Ped:
-    def __init__(self, type: string, direction: string):
+    def __init__(self, type: str, direction: str):
         super().__init__()
         self.x = 0
         self.y = 0
@@ -27,8 +27,7 @@ class Ped:
         self.direction = direction # one of {"left2right", "right2left"}
         self.radius = RADIUS_OF_SPACE_OCCUPIED[type]
 
-    
-    def get_rand_velocity(self, type):
+    def get_rand_velocity(self, type) -> int:
         if type == "ped":
             return random.randrange(PED_WALKING_VELOCITY_MIN, PED_WALKING_VELOCITY_MAX)
         elif type == "wheelchair":
@@ -36,24 +35,30 @@ class Ped:
         elif type == "crutches_user":
             return random.randrange(CRUTCHES_USER_WALKING_VELOCITY_MIN, CRUTCHES_USER_WALKING_VELOCITY_MAX)
 
-    def is_inside_zebra(self):        
+    def is_inside_zebra(self) -> bool:        
         if (self.x >= 0 and self.x <= ZEBRA_AREA_LENGTH) and (self.y >= 0 and self.y <= ZEBRA_AREA_WIDTH):
             return True
         return False
 
-    def is_newspace_conflict(self, newx: int, newy: int, another: Ped):
+    def is_newspace_conflict(self, newx: int, newy: int, others: 'Ped[]') -> 'Ped[]':
         # newx = self.x + self.velocity if self.direction == "left2right" else self.x - self.velocity
-        distance = math.sqrt((newx - another.x)^2 + (newy - another.y)^2)
-        if distance <= self.radius + another.radius:
-            return True
-        return False
+        conflict = []
+        for another in others:
+            distance = math.sqrt((newx - another.x)^2 + (newy - another.y)^2)
+            if (distance <= self.radius + another.radius):
+                conflict.append(another)
+        return conflict
+    
 
-    def move_one_second(self):
-        newx = self.x + self.velocity if self.direction == "left2right" else self.x - self.velocity
-        newy = self.y
-        if (is_newspace_conflict(newx, newy, ))
-        if self.direction == "left2right":
-            self.x = self.x + self.velocity
+    # def move_one_second(self):
+    #     newx = self.x + self.velocity if self.direction == "left2right" else self.x - self.velocity
+    #     newy = self.y
+    #     if (is_newspace_conflict(newx, newy, ))
+    #     if self.direction == "left2right":
+    #         self.x = self.x + self.velocity
 
 
 
+# class Utilities:
+#     @staticmethod
+    
