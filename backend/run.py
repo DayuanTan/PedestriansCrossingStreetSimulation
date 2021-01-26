@@ -1,10 +1,14 @@
 import PedCross
+import Circles
 import operator
 
 
 PED_L2R_SIZE = 30
 WHEELCHAIR_L2R_SIZE = 1
 CRUTCHES_USER_L2R_SIZE = 1
+
+SIMU_STEP_TIME = 1 
+
 
 all_peds = list()
 
@@ -15,13 +19,21 @@ for i in range(0, PED_L2R_SIZE):
 total_size = PED_L2R_SIZE + WHEELCHAIR_L2R_SIZE + CRUTCHES_USER_L2R_SIZE
 print("total_size: ", total_size, " ", len(all_peds))
 
-all_peds_sorted_by_y = sorted(all_peds, key=operator.attrgetter('y'), reverse=True)
+# all_peds_sorted_by_y = sorted(all_peds, key=operator.attrgetter('y'), reverse=True)
+all_peds_sorted_by_y = sorted(all_peds, key=operator.attrgetter('y'))
+print(all_peds_sorted_by_y)
+
 for i in range(total_size):
     newx = all_peds_sorted_by_y[i].x + all_peds_sorted_by_y[i].velocity 
     newy = all_peds_sorted_by_y[i].y
-    conflict = all_peds_sorted_by_y[i].is_newspace_conflict(newx, newy , all_peds_sorted_by_y[:i])
+    conflict = all_peds_sorted_by_y[i].is_newspace_conflict(newx, newy , all_peds_sorted_by_y[i+1:])
     if (len(conflict) == 0):
         all_peds_sorted_by_y[i].x = newx
         all_peds_sorted_by_y[i].y = newy
     else:
-        find a new space
+        for in_front_ped in all_peds_sorted_by_y[i+1:]:
+            intersection = Circles.get_intersections(all_peds_sorted_by_y[i].x, all_peds_sorted_by_y[i].y, all_peds_sorted_by_y[i].velocity * SIMU_STEP_TIME, in_front_ped.x, in_front_ped.y, in_front_ped.radius + all_peds_sorted_by_y[i].radius)
+            newx = intersection[2]
+            newy = intersection[3]
+            conflict = all_peds_sorted_by_y[i].is_newspace_conflict(newx, newy , all_peds_sorted_by_y[:i])
+            print(conflict)
