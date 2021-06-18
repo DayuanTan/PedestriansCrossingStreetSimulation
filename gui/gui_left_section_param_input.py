@@ -80,22 +80,22 @@ def param_save_button_func(params):
 
 
 def param_save_button_logic(params):
-    zebra_area_width = int(params.zebra_area_width_entry.get())
-    zebra_area_length = int(params.zebra_area_length_entry.get())
-    ped_amount_lr = int(params.ped_amount_lr_entry.get())
-    ped_amount_rl = int(params.ped_amount_rl_entry.get())
-    wheelchair_amount_lr = int(params.wheelchair_amount_lr_entry.get())
-    wheelchair_amount_rl = int(params.wheelchair_amount_rl_entry.get())
-    children_amount_lr = int(params.children_amount_lr_entry.get())
-    children_amount_rl = int(params.children_amount_rl_entry.get())
+    params.zebra_area_width = int(params.zebra_area_width_entry.get())
+    params.zebra_area_length = int(params.zebra_area_length_entry.get())
+    params.ped_amount_lr = int(params.ped_amount_lr_entry.get())
+    params.ped_amount_rl = int(params.ped_amount_rl_entry.get())
+    params.wheelchair_amount_lr = int(params.wheelchair_amount_lr_entry.get())
+    params.wheelchair_amount_rl = int(params.wheelchair_amount_rl_entry.get())
+    params.children_amount_lr = int(params.children_amount_lr_entry.get())
+    params.children_amount_rl = int(params.children_amount_rl_entry.get())
 
-    if zebra_area_width <= 0 or zebra_area_length <= 0 or ped_amount_lr <= 0 or ped_amount_rl <= 0 \
-            or wheelchair_amount_lr < 0 or wheelchair_amount_rl < 0 or children_amount_lr < 0 or children_amount_rl < 0:
+    if params.zebra_area_width <= 0 or params.zebra_area_length <= 0 or params.ped_amount_lr <= 0 or params.ped_amount_rl <= 0 \
+            or params.wheelchair_amount_lr < 0 or params.wheelchair_amount_rl < 0 or params.children_amount_lr < 0 or params.children_amount_rl < 0:
         tk.messagebox.showinfo(title="Alert", message="Invalid arguments!")
         param_save_button_func(params)
 
-    param_saved_label = tk.Label(params.frame, text="Parameters applied. Width: " + str(zebra_area_width) + " Length: " + str(
-        zebra_area_length) + " p: " + str(ped_amount_lr))
+    param_saved_label = tk.Label(params.frame, text="Parameters applied. Width: " + str(params.zebra_area_width) + " Length: " + str(
+        params.zebra_area_length) + " p: " + str(params.ped_amount_lr))
     param_saved_label.place(relx=0, rely=0.76, anchor="w")
 
     # waiting_area_left_setup(ped_amount_lr, wheelchair_amount_lr, children_amount_lr)
