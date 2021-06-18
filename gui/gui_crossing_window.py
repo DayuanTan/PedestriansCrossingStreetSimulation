@@ -16,4 +16,4 @@ def begin_crossing_func(root, params):
     greeting.grid(row=1, columnspan=3, padx=600, pady=5)
 
     quit_button = tk.Button(params.cross_window, text="Quit", command=root.quit)
-    quit_button.place(relx=0.75, rely=0.9, anchor="w")
+    quit_button.place(relx=0.5, rely=0.9, anchor="w")
