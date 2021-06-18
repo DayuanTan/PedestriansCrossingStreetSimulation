@@ -21,4 +21,8 @@ class gui_global_params:
         self.children_amount_rl = 0
 
         self.frame = 0
+
+
+        self.cross_window = 0
+        self.cross_window_frame = 0
         self.waiting_area_left_canvas_images_dict = dict()

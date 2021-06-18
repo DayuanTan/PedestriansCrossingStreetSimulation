@@ -61,25 +61,12 @@ def left_section_param_input(root, params):
     params.children_amount_rl_entry.place(relx=0.88, rely=0.69, anchor="w")
 
 
-def param_save_button_func(params):
-    param_save_button_logic(params)
+def param_save_button_func(root, params):
+    param_save_button_logic(root, params)
 
 
-# def begin_crossing_func():
-#     begin_crossing_logic(0)
 
-
-# save_button = tk.Button(frame, text="Setup pedestrians", command=param_save_button_func)
-# save_button.place(relx=0.0, rely=0.83, anchor="w")
-
-# cross_botton = tk.Button(frame, text="Begin crossing", command=begin_crossing_func)
-# cross_botton.place(relx=0.0, rely=0.90, anchor="w")
-
-# quit_button = tk.Button(frame, text="Quit", command=root.quit)
-# quit_button.place(relx=0.4, rely=0.90, anchor="w")
-
-
-def param_save_button_logic(params):
+def param_save_button_logic(root, params):
     params.zebra_area_width = int(params.zebra_area_width_entry.get())
     params.zebra_area_length = int(params.zebra_area_length_entry.get())
     params.ped_amount_lr = int(params.ped_amount_lr_entry.get())
@@ -92,11 +79,11 @@ def param_save_button_logic(params):
     if params.zebra_area_width <= 0 or params.zebra_area_length <= 0 or params.ped_amount_lr <= 0 or params.ped_amount_rl <= 0 \
             or params.wheelchair_amount_lr < 0 or params.wheelchair_amount_rl < 0 or params.children_amount_lr < 0 or params.children_amount_rl < 0:
         tk.messagebox.showinfo(title="Alert", message="Invalid arguments!")
-        param_save_button_func(params)
+        param_save_button_func(root, params)
 
     param_saved_label = tk.Label(params.frame, text="Parameters applied. Width: " + str(params.zebra_area_width) + " Length: " + str(
         params.zebra_area_length) + " p: " + str(params.ped_amount_lr))
-    param_saved_label.place(relx=0, rely=0.76, anchor="w")
+    param_saved_label.place(relx=0.25, rely=0.83, anchor="w")
 
     # waiting_area_left_setup(ped_amount_lr, wheelchair_amount_lr, children_amount_lr)
 
