@@ -15,5 +15,9 @@ def begin_crossing_func(root, params):
     greeting = tk.Label(params.cross_window, text="PPedestrians Crossing")
     greeting.grid(row=1, columnspan=3, padx=600, pady=5)
 
+    # buttons
     quit_button = tk.Button(params.cross_window, text="Quit", command=root.quit)
     quit_button.place(relx=0.5, rely=0.9, anchor="w")
+
+    # draw the canvas for crosswalk
+    # move ped
