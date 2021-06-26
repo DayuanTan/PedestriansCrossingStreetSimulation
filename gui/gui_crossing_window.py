@@ -20,7 +20,7 @@ def begin_crossing_func(root, params):
     quit_button.place(relx=0.5, rely=0.9, anchor="w")
 
     # draw the canvas for crosswalk
-    # frame for zebra and pedestrians crossing
+    # frame for crosswalk and pedestrians crossing
     cross_frame = tk.LabelFrame(params.cross_window, padx=5, pady=5, height=600, width=1200)
     cross_frame.grid(row=2, column=1, padx=0, pady=5)
     cross_frame.configure(height=cross_frame["height"], width=cross_frame["width"])

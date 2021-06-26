@@ -13,17 +13,17 @@ def left_section_param_input(root, params):
     ask_for_param_label = tk.Label(frame, text="Please set up parameters:")
     ask_for_param_label.place(relx=0.5, rely=0.1, anchor="center")
 
-    zebra_area_width_label = tk.Label(frame, text="Width for zebra area:")
-    zebra_area_width_label.place(relx=0.0, rely=0.2, anchor="w")
-    params.zebra_area_width_entry = tk.Entry(frame, width=3)
-    params.zebra_area_width_entry.insert(0, "3")
-    params.zebra_area_width_entry.place(relx=0.88, rely=0.2, anchor="w")
+    crosswalk_width_label = tk.Label(frame, text="Width for zebra area:")
+    crosswalk_width_label.place(relx=0.0, rely=0.2, anchor="w")
+    params.crosswalk_width_entry = tk.Entry(frame, width=3)
+    params.crosswalk_width_entry.insert(0, "3")
+    params.crosswalk_width_entry.place(relx=0.88, rely=0.2, anchor="w")
 
-    zebra_area_length_label = tk.Label(frame, text="Length for zebra area:")
-    zebra_area_length_label.place(relx=0.0, rely=0.27, anchor="w")
-    params.zebra_area_length_entry = tk.Entry(frame, width=3)
-    params.zebra_area_length_entry.insert(0, "10")
-    params.zebra_area_length_entry.place(relx=0.88, rely=0.27, anchor="w")
+    crosswalk_length_label = tk.Label(frame, text="Length for zebra area:")
+    crosswalk_length_label.place(relx=0.0, rely=0.27, anchor="w")
+    params.crosswalk_length_entry = tk.Entry(frame, width=3)
+    params.crosswalk_length_entry.insert(0, "10")
+    params.crosswalk_length_entry.place(relx=0.88, rely=0.27, anchor="w")
 
     ped_amount_lr_label = tk.Label(frame, text="Amount of pedestrians from left to right:")
     ped_amount_lr_label.place(relx=0.0, rely=0.34, anchor="w")
@@ -69,8 +69,8 @@ def param_save_button_func(root, params):
 
 
 def param_save_button_logic(root, params):
-    params.zebra_area_width = int(params.zebra_area_width_entry.get())
-    params.zebra_area_length = int(params.zebra_area_length_entry.get())
+    params.crosswalk_width = int(params.crosswalk_width_entry.get())
+    params.crosswalk_length = int(params.crosswalk_length_entry.get())
     params.ped_amount_lr = int(params.ped_amount_lr_entry.get())
     params.ped_amount_rl = int(params.ped_amount_rl_entry.get())
     params.wheelchair_amount_lr = int(params.wheelchair_amount_lr_entry.get())
@@ -78,16 +78,16 @@ def param_save_button_logic(root, params):
     params.children_amount_lr = int(params.children_amount_lr_entry.get())
     params.children_amount_rl = int(params.children_amount_rl_entry.get())
 
-    if params.zebra_area_width <= 0 or params.zebra_area_length <= 0 or params.ped_amount_lr <= 0 or params.ped_amount_rl <= 0 \
+    if params.crosswalk_width <= 0 or params.crosswalk_length <= 0 or params.ped_amount_lr <= 0 or params.ped_amount_rl <= 0 \
             or params.wheelchair_amount_lr < 0 or params.wheelchair_amount_rl < 0 or params.children_amount_lr < 0 or params.children_amount_rl < 0:
         messagebox.showinfo(title="Alert", message="Invalid arguments!")
         param_save_button_func(root, params)
 
-    # param_saved_label = tk.Label(params.frame, text="Parameters applied. Width: " + str(params.zebra_area_width) + " Length: " + str(
-    #     params.zebra_area_length) + " p: " + str(params.ped_amount_lr))
+    # param_saved_label = tk.Label(params.frame, text="Parameters applied. Width: " + str(params.crosswalk_width) + " Length: " + str(
+    #     params.crosswalk_length) + " p: " + str(params.ped_amount_lr))
     # param_saved_label.place(relx=0.25, rely=0.83, anchor="w")
-    messagebox.showinfo(title="Parameters applied", message="Parameters applied! \nCrosswalk Width: " + str(params.zebra_area_width) 
-        + "\nCrosswalk Length: " + str(params.zebra_area_length) + "\np: " + str(params.ped_amount_lr))
+    messagebox.showinfo(title="Parameters applied", message="Parameters applied! \nCrosswalk Width: " + str(params.crosswalk_width) 
+        + "\nCrosswalk Length: " + str(params.crosswalk_length) + "\np: " + str(params.ped_amount_lr))
 
 
     
