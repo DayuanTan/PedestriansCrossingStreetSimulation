@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import messagebox
 import random
 
 
@@ -63,6 +64,7 @@ def left_section_param_input(root, params):
 
 def param_save_button_func(root, params):
     param_save_button_logic(root, params)
+    
 
 
 
@@ -78,133 +80,16 @@ def param_save_button_logic(root, params):
 
     if params.zebra_area_width <= 0 or params.zebra_area_length <= 0 or params.ped_amount_lr <= 0 or params.ped_amount_rl <= 0 \
             or params.wheelchair_amount_lr < 0 or params.wheelchair_amount_rl < 0 or params.children_amount_lr < 0 or params.children_amount_rl < 0:
-        tk.messagebox.showinfo(title="Alert", message="Invalid arguments!")
+        messagebox.showinfo(title="Alert", message="Invalid arguments!")
         param_save_button_func(root, params)
 
-    param_saved_label = tk.Label(params.frame, text="Parameters applied. Width: " + str(params.zebra_area_width) + " Length: " + str(
-        params.zebra_area_length) + " p: " + str(params.ped_amount_lr))
-    param_saved_label.place(relx=0.25, rely=0.83, anchor="w")
-
-    # waiting_area_left_setup(ped_amount_lr, wheelchair_amount_lr, children_amount_lr)
-
-
+    # param_saved_label = tk.Label(params.frame, text="Parameters applied. Width: " + str(params.zebra_area_width) + " Length: " + str(
+    #     params.zebra_area_length) + " p: " + str(params.ped_amount_lr))
+    # param_saved_label.place(relx=0.25, rely=0.83, anchor="w")
+    messagebox.showinfo(title="Parameters applied", message="Parameters applied! \nCrosswalk Width: " + str(params.zebra_area_width) 
+        + "\nCrosswalk Length: " + str(params.zebra_area_length) + "\np: " + str(params.ped_amount_lr))
 
 
-def waiting_area_left_setup(ped_amount_lr, wheelchair_amount_lr, children_amount_lr):
-    if ped_amount_lr <= 5:
-        for i in range(1, 6):
-            waiting_area_left_canvas_images_dict[i] = bg_canvas.create_image(177, 95 + 40 * (i - 1), image=ped_lr_img,
-                                                                             anchor=tk.NW)
-    elif ped_amount_lr <= 10:
-        for i in range(1, 6):
-            waiting_area_left_canvas_images_dict[i] = bg_canvas.create_image(177, 95 + 40 * (i - 1), image=ped_lr_img,
-                                                                             anchor=tk.NW)
-        for i in range(1, ped_amount_lr - 4):
-            waiting_area_left_canvas_images_dict[i + 5] = bg_canvas.create_image(157, 95 + 40 * (i - 1),
-                                                                                 image=ped_lr_img, anchor=tk.NW)
-    elif ped_amount_lr <= 15:
-        for i in range(1, 6):
-            waiting_area_left_canvas_images_dict[i] = bg_canvas.create_image(177, 95 + 40 * (i - 1), image=ped_lr_img,
-                                                                             anchor=tk.NW)
-        for i in range(1, 6):
-            waiting_area_left_canvas_images_dict[i + 5] = bg_canvas.create_image(157, 95 + 40 * (i - 1),
-                                                                                 image=ped_lr_img, anchor=tk.NW)
-        for i in range(1, ped_amount_lr - 9):
-            waiting_area_left_canvas_images_dict[i + 10] = bg_canvas.create_image(137, 95 + 40 * (i - 1),
-                                                                                  image=ped_lr_img, anchor=tk.NW)
-    elif ped_amount_lr <= 20:
-        for i in range(1, 6):
-            waiting_area_left_canvas_images_dict[i] = bg_canvas.create_image(177, 95 + 40 * (i - 1), image=ped_lr_img,
-                                                                             anchor=tk.NW)
-        for i in range(1, 6):
-            waiting_area_left_canvas_images_dict[i + 5] = bg_canvas.create_image(157, 95 + 40 * (i - 1),
-                                                                                 image=ped_lr_img, anchor=tk.NW)
-        for i in range(1, 6):
-            waiting_area_left_canvas_images_dict[i + 10] = bg_canvas.create_image(137, 95 + 40 * (i - 1),
-                                                                                  image=ped_lr_img, anchor=tk.NW)
-        for i in range(1, ped_amount_lr - 14):
-            waiting_area_left_canvas_images_dict[i + 15] = bg_canvas.create_image(117, 95 + 40 * (i - 1),
-                                                                                  image=ped_lr_img, anchor=tk.NW)
-    elif ped_amount_lr <= 25:
-        for i in range(1, 6):
-            waiting_area_left_canvas_images_dict[i] = bg_canvas.create_image(177, 95 + 40 * (i - 1), image=ped_lr_img,
-                                                                             anchor=tk.NW)
-        for i in range(1, 6):
-            waiting_area_left_canvas_images_dict[i + 5] = bg_canvas.create_image(157, 95 + 40 * (i - 1),
-                                                                                 image=ped_lr_img, anchor=tk.NW)
-        for i in range(1, 6):
-            waiting_area_left_canvas_images_dict[i + 10] = bg_canvas.create_image(137, 95 + 40 * (i - 1),
-                                                                                  image=ped_lr_img, anchor=tk.NW)
-        for i in range(1, 6):
-            waiting_area_left_canvas_images_dict[i + 15] = bg_canvas.create_image(117, 95 + 40 * (i - 1),
-                                                                                  image=ped_lr_img, anchor=tk.NW)
-        for i in range(1, ped_amount_lr - 19):
-            waiting_area_left_canvas_images_dict[i + 20] = bg_canvas.create_image(97, 95 + 40 * (i - 1),
-                                                                                  image=ped_lr_img, anchor=tk.NW)
-    elif ped_amount_lr <= 30:
-        for i in range(1, 6):
-            waiting_area_left_canvas_images_dict[i] = bg_canvas.create_image(177, 95 + 40 * (i - 1), image=ped_lr_img,
-                                                                             anchor=tk.NW)
-        for i in range(1, 6):
-            waiting_area_left_canvas_images_dict[i + 5] = bg_canvas.create_image(157, 95 + 40 * (i - 1),
-                                                                                 image=ped_lr_img, anchor=tk.NW)
-        for i in range(1, 6):
-            waiting_area_left_canvas_images_dict[i + 10] = bg_canvas.create_image(137, 95 + 40 * (i - 1),
-                                                                                  image=ped_lr_img, anchor=tk.NW)
-        for i in range(1, 6):
-            waiting_area_left_canvas_images_dict[i + 15] = bg_canvas.create_image(117, 95 + 40 * (i - 1),
-                                                                                  image=ped_lr_img, anchor=tk.NW)
-        for i in range(1, 6):
-            waiting_area_left_canvas_images_dict[i + 20] = bg_canvas.create_image(97, 95 + 40 * (i - 1),
-                                                                                  image=ped_lr_img, anchor=tk.NW)
-        for i in range(1, ped_amount_lr - 24):
-            waiting_area_left_canvas_images_dict[i + 25] = bg_canvas.create_image(77, 95 + 40 * (i - 1),
-                                                                                  image=ped_lr_img, anchor=tk.NW)
-    elif ped_amount_lr <= 35:
-        for i in range(1, 6):
-            waiting_area_left_canvas_images_dict[i] = bg_canvas.create_image(177, 95 + 40 * (i - 1), image=ped_lr_img,
-                                                                             anchor=tk.NW)
-        for i in range(1, 6):
-            waiting_area_left_canvas_images_dict[i + 5] = bg_canvas.create_image(157, 95 + 40 * (i - 1),
-                                                                                 image=ped_lr_img, anchor=tk.NW)
-        for i in range(1, 6):
-            waiting_area_left_canvas_images_dict[i + 10] = bg_canvas.create_image(137, 95 + 40 * (i - 1),
-                                                                                  image=ped_lr_img, anchor=tk.NW)
-        for i in range(1, 6):
-            waiting_area_left_canvas_images_dict[i + 15] = bg_canvas.create_image(117, 95 + 40 * (i - 1),
-                                                                                  image=ped_lr_img, anchor=tk.NW)
-        for i in range(1, 6):
-            waiting_area_left_canvas_images_dict[i + 20] = bg_canvas.create_image(97, 95 + 40 * (i - 1),
-                                                                                  image=ped_lr_img, anchor=tk.NW)
-        for i in range(1, 6):
-            waiting_area_left_canvas_images_dict[i + 25] = bg_canvas.create_image(77, 95 + 40 * (i - 1),
-                                                                                  image=ped_lr_img, anchor=tk.NW)
-        for i in range(1, ped_amount_lr - 29):
-            waiting_area_left_canvas_images_dict[i + 30] = bg_canvas.create_image(57, 95 + 40 * (i - 1),
-                                                                                  image=ped_lr_img, anchor=tk.NW)
-    else:
-        for i in range(1, 6):
-            waiting_area_left_canvas_images_dict[i] = bg_canvas.create_image(177, 95 + 40 * (i - 1), image=ped_lr_img,
-                                                                             anchor=tk.NW)
-        for i in range(1, 6):
-            waiting_area_left_canvas_images_dict[i + 5] = bg_canvas.create_image(157, 95 + 40 * (i - 1),
-                                                                                 image=ped_lr_img, anchor=tk.NW)
-        for i in range(1, 6):
-            waiting_area_left_canvas_images_dict[i + 10] = bg_canvas.create_image(137, 95 + 40 * (i - 1),
-                                                                                  image=ped_lr_img, anchor=tk.NW)
-        for i in range(1, 6):
-            waiting_area_left_canvas_images_dict[i + 15] = bg_canvas.create_image(117, 95 + 40 * (i - 1),
-                                                                                  image=ped_lr_img, anchor=tk.NW)
-        for i in range(1, 6):
-            waiting_area_left_canvas_images_dict[i + 20] = bg_canvas.create_image(97, 95 + 40 * (i - 1),
-                                                                                  image=ped_lr_img, anchor=tk.NW)
-        for i in range(1, 6):
-            waiting_area_left_canvas_images_dict[i + 25] = bg_canvas.create_image(77, 95 + 40 * (i - 1),
-                                                                                  image=ped_lr_img, anchor=tk.NW)
-        for i in range(1, 6):
-            waiting_area_left_canvas_images_dict[i + 30] = bg_canvas.create_image(57, 95 + 40 * (i - 1),
-                                                                                  image=ped_lr_img, anchor=tk.NW)
-        for i in range(1, ped_amount_lr - 34):
-            waiting_area_left_canvas_images_dict[i + 35] = bg_canvas.create_image(random.randrange(57, 177),
-                                                                                  random.randrange(95, 255),
-                                                                                  image=ped_lr_img, anchor=tk.NW)
+    
+
+

@@ -160,7 +160,7 @@ def setup_zebra():
 setup_curb()
 setup_zebra()
 
-ped_lr_img = tk.PhotoImage(file="img/ped_lr.png")
+ped_lr_img = tk.PhotoImage(file="other_try/ped_lr.png")
 # wheelchair_lr_img = tk.PhotoImage(file="img/wheelchair_lr.png")
 
 waiting_area_left_canvas_images_dict = dict()
