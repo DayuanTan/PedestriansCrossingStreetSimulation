@@ -87,7 +87,7 @@ def param_save_button_logic(root, params):
     #     params.crosswalk_length) + " p: " + str(params.ped_amount_lr))
     # param_saved_label.place(relx=0.25, rely=0.83, anchor="w")
     messagebox.showinfo(title="Parameters applied", message="Parameters applied! \nCrosswalk Width: " + str(params.crosswalk_width) 
-        + "\nCrosswalk Length: " + str(params.crosswalk_length) + "\np: " + str(params.ped_amount_lr))
+        + "\nCrosswalk Length: " + str(params.crosswalk_length) + "\nped_amount_lr: " + str(params.ped_amount_lr))
 
 
     
