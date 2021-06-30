@@ -24,5 +24,9 @@ class gui_global_params:
 
 
         self.cross_window = 0
-        # self.cross_window_frame = 0
+        self.cross_frame = 0
+        self.cross_bg_canvas = 0
+        self.background = 0
         self.waiting_area_left_canvas_images_dict = dict()
+        self.ped_lr_img = 0
+        
