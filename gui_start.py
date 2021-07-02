@@ -1,5 +1,5 @@
 import tkinter as tk
-import gui.gui_global_params as gui_global_params 
+import global_params.global_params as global_params
 import gui.gui_left_section_param_input as l
 import gui.gui_crossing_window as cross
 
@@ -14,7 +14,7 @@ greeting = tk.Label(root, text="Parameters Setting")
 greeting.grid(row=1, columnspan=3, padx=600, pady=5)
 
 # declare global parameters
-params = gui_global_params.gui_global_params()
+params = global_params.global_params()
 
 # left param input section
 l.left_section_param_input(root, params)

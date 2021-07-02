@@ -1,4 +1,4 @@
-class gui_global_params:
+class global_params:
     def __init__(self):
         super().__init__()
 
