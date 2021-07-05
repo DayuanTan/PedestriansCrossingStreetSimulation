@@ -11,11 +11,11 @@ class Ped:
         self.x = 0
         self.y = 0
         self.type = type # one of {"ped", "wheelchair", "crutches_user", "child", "elder"}
-        self.velocity = self.get_velocity(type)
+        self.velocity = self.set_velocity(type)
         self.direction = direction # one of {"left2right", "right2left"}
         self.radius = params.radius_of_space_occupied[type]
 
-    def get_velocity(self, type) -> int:
+    def set_velocity(self, type) -> int:
         if type == "ped":
             return np.random.normal(params.ped_walking_velocity_mean, params.ped_walking_velocity_sigma, 1)[0]
         elif type == "wheelchair":
@@ -32,7 +32,7 @@ class Ped:
             return True
         return False
 
-    def is_newspace_conflict(self, newx: int, newy: int, others: 'Ped[]') -> 'Ped[]':
+    def is_newposition_conflict(self, newx: int, newy: int, others: 'Ped[]') -> 'Ped[]':
         # newx = self.x + self.velocity if self.direction == "left2right" else self.x - self.velocity
         conflict = []
         for another in others:

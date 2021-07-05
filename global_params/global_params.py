@@ -9,6 +9,7 @@ class global_params:
         # simulation area with default value
         self.crosswalk_width = 300 #cm
         self.crosswalk_length = 1000 #cm
+        self.waiting_area_length = 300 #cm
 
         # simulation amount with default value
         self.ped_amount_lr = 20
