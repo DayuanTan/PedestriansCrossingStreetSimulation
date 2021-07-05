@@ -10,13 +10,13 @@ class global_params:
         self.crosswalk_width = 300 #cm
         self.crosswalk_length = 1000 #cm
 
-        # simulation amount
-        self.ped_amount_lr = 0
-        self.ped_amount_rl = 0
-        self.wheelchair_amount_lr = 0
+        # simulation amount with default value
+        self.ped_amount_lr = 20
+        self.ped_amount_rl = 20
+        self.wheelchair_amount_lr = 1
         self.wheelchair_amount_rl = 0
         self.crutches_user_amount_lr = 0
-        self.crutches_user_amount_rl = 0
+        self.crutches_user_amount_rl = 1
         self.children_amount_lr = 0
         self.children_amount_rl = 0
         self.elder_amount_lr = 0

@@ -1,23 +1,29 @@
-import PedCross
-from Circles import Circles
+import backend.Ped as Ped
+from backend.Circles import Circles as Circles
 import operator
+import global_params.global_params as global_params
 
 
-PED_L2R_SIZE = 30
-WHEELCHAIR_L2R_SIZE = 1
-CRUTCHES_USER_L2R_SIZE = 1
+params = global_params.global_params()
+
 
 SIMU_STEP_TIME = 1 
 
+print("Parameters applied!\ncrosswalk_width: ", params.crosswalk_width)
+print("crosswalk_length: ", params.crosswalk_length)
 
 all_peds = list()
 
-for i in range(0, PED_L2R_SIZE):
-    all_peds.append(PedCross.Ped("ped", "left2right"))
+for i in range(0, params.ped_amount_lr):
+    all_peds.append(Ped.Ped("ped", "left2right"))
     print(all_peds[i].x, all_peds[i].y, all_peds[i].type, all_peds[i].velocity, all_peds[i].direction, all_peds[i].radius)
 
-total_size = PED_L2R_SIZE + WHEELCHAIR_L2R_SIZE + CRUTCHES_USER_L2R_SIZE
-print("total_size: ", total_size, " ", len(all_peds))
+total_size_lr = params.ped_amount_lr + params.wheelchair_amount_lr + params.crutches_user_amount_lr + params.children_amount_lr + params.elder_amount_lr
+total_size_rl = params.ped_amount_rl + params.wheelchair_amount_rl + params.crutches_user_amount_rl + params.children_amount_rl + params.elder_amount_rl
+total_size =  total_size_lr + total_size_rl
+print("total_size_lr: ", total_size_lr )
+print("total_size_rl: ", total_size_rl )
+print("total_size: ", total_size )
 
 # all_peds_sorted_by_y = sorted(all_peds, key=operator.attrgetter('y'), reverse=True)
 all_peds_sorted_by_y = sorted(all_peds, key=operator.attrgetter('y'))
