@@ -15,7 +15,7 @@ class Ped:
         self.velocity = self.set_velocity(type)
         self.radius = params.radius_of_space_occupied[type]
 
-        self.set_position()
+        self.set_initial_standing_position()
         
 
 
@@ -31,7 +31,7 @@ class Ped:
         elif type == "elder":
             return np.random.normal(params.elder_walking_velocity_mean, params.elder_walking_velocity_sigma, 1)[0]
 
-    def set_position(self, params):
+    def set_initial_standing_position(self, params):
         x_offset = abs(np.random.normal(params.waiting_area_position_x_offset_mean, params.waiting_area_position_x_offset_sigma, 1)[0])
         if self.direction == "left2right":
             self.x = params.waiting_area_length - x_offset

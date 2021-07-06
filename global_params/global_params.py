@@ -68,6 +68,12 @@ class global_params:
             "elder": 50
         }
 
+        self.all_peds_lr = list() # all ped who want go from left to right
+        self.all_peds_rl = list() # all ped who want go from right to left
+        self.all_peds = list()  # all ped 
+        self.all_peds_lr_sorted_by_x = list() # all sorted ped who want go from left to right, sorted by x reversed
+        self.all_peds_rl_sorted_by_x = list() # all sorted ped who want go from right to left, sorted by x 
+
 
         #
         # params needed only in gui 
