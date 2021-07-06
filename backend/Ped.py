@@ -13,7 +13,8 @@ class Ped:
         self.type = type # one of {"ped", "wheelchair", "crutches_user", "child", "elder"}
         self.direction = direction # one of {"left2right", "right2left"}
         self.velocity = self.set_velocity(type)
-        self.radius = params.radius_of_space_occupied[type]
+        self.radius_standing = params.radius_of_space_occupied_when_standing[type]
+        self.radius_moving = params.radius_of_space_occupied_when_moving[type]
 
         self.set_initial_standing_position()
         

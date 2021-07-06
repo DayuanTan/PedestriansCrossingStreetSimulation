@@ -60,7 +60,14 @@ class global_params:
         self.elder_walking_velocity_sigma = (self.elder_walking_velocity_max - self.elder_walking_velocity_mean) / 3 # max = mean + 3*sigma => sigma = (max - mean )/3
 
         # simulation occupied space with default value
-        self.radius_of_space_occupied = {
+        self.radius_of_space_occupied_when_standing = {
+            "ped": 30, #cm
+            "wheelchair": 70, 
+            "crutches_user": 40,
+            "children": 30,
+            "elder": 30
+        }
+        self.radius_of_space_occupied_when_moving = {
             "ped": 50, #cm
             "wheelchair": 70, 
             "crutches_user": 90,
