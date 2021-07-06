@@ -22,16 +22,16 @@ class global_params:
         self.waiting_area_position_y_sigma = self.crosswalk_width / 4 # max = mean + 2*sigma => sigma = (max - mean )/2
 
         # simulation amount with default value
-        self.ped_amount_lr = 20
-        self.ped_amount_rl = 20
+        self.ped_amount_lr = 10
+        self.ped_amount_rl = 10
         self.wheelchair_amount_lr = 1
         self.wheelchair_amount_rl = 0
         self.crutches_user_amount_lr = 0
         self.crutches_user_amount_rl = 1
-        self.children_amount_lr = 0
+        self.children_amount_lr = 1
         self.children_amount_rl = 0
         self.elder_amount_lr = 0
-        self.elder_amount_rl = 0
+        self.elder_amount_rl = 1
 
         # simulation speed with default value
         self.ped_walking_velocity_min = 110 #cm/s
