@@ -72,7 +72,9 @@ class Ped:
                 conflict.append(another)
         return conflict
     
-
+    def move_one_step(self, params):
+        newx = (self.x + self.velocity * self.step_time) if self.direction == "left2right" else (self.x - self.velocity * self.step_time)
+        newy = self.y
     # def move_one_second(self):
     #     newx = self.x + self.velocity if self.direction == "left2right" else self.x - self.velocity
     #     newy = self.y
