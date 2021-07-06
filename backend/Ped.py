@@ -27,6 +27,9 @@ class Ped:
         elif type == "elder":
             return np.random.normal(params.elder_walking_velocity_mean, params.elder_walking_velocity_sigma, 1)[0]
 
+    def set_position():
+        
+
     def is_inside_crosswalk(self) -> bool:        
         if (self.x >= 0 and self.x <= params.crosswalk_length) and (self.y >= 0 and self.y <= params.crosswalk_width):
             return True

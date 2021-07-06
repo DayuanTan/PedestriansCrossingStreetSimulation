@@ -10,6 +10,10 @@ class global_params:
         self.crosswalk_width = 300 #cm
         self.crosswalk_length = 1000 #cm
         self.waiting_area_length = 300 #cm
+        self.waiting_area_position_x_offset_mean = 0 #coordinate
+        self.waiting_area_position_x_offset_sigma = 0.1 
+        self.waiting_area_position_y_mean = self.crosswalk_width / 2 #coordinate
+        self.waiting_area_position_y_sigma = 0.1 
 
         # simulation amount with default value
         self.ped_amount_lr = 20
