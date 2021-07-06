@@ -72,7 +72,7 @@
                 <mxCell id="21" value="Setup directions;&lt;br&gt;Generate their velocity, &lt;br&gt;initial position" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
                     <mxGeometry x="1385" y="225" width="160" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="22" value="move one step for one &lt;br&gt;ped, find intersection &lt;br&gt;point, ensure no conflict" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+                <mxCell id="22" value="move one step for each&lt;br&gt;ped: find intersection &lt;br&gt;point, ensure no conflict" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
                     <mxGeometry x="1385" y="310" width="160" height="80" as="geometry"/>
                 </mxCell>
             </root>

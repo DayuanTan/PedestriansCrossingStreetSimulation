@@ -42,7 +42,7 @@ class Ped:
         self.y = np.random.normal(self.params.waiting_area_position_y_mean, self.params.waiting_area_position_y_sigma, 1)[0]
 
     def is_inside_crosswalk(self) -> bool:        
-        if (self.x >= 0 and self.x <= self.params.crosswalk_length) and (self.y >= 0 and self.y <= self.params.crosswalk_width):
+        if (self.x >= self.params.waiting_area_length and self.x <= self.params.waiting_area_length+self.params.crosswalk_length) and (self.y >= 0 and self.y <= self.params.crosswalk_width):
             return True
         return False
 
