@@ -32,7 +32,7 @@ print(all_peds_sorted_by_y, "\n")
 for i in range(total_size):
     newx = all_peds_sorted_by_y[i].x + all_peds_sorted_by_y[i].velocity 
     newy = all_peds_sorted_by_y[i].y
-    conflict = all_peds_sorted_by_y[i].is_newspace_conflict(newx, newy , all_peds_sorted_by_y[i+1:])
+    conflict = all_peds_sorted_by_y[i].is_newposition_conflict(newx, newy , all_peds_sorted_by_y[i+1:])
     print("conflict: ", len(conflict))
     if (len(conflict) == 0):
         all_peds_sorted_by_y[i].x = newx
@@ -44,7 +44,7 @@ for i in range(total_size):
             print(intersection)
             newx = intersection[2]
             newy = intersection[3]
-            conflict = all_peds_sorted_by_y[i].is_newspace_conflict(newx, newy , all_peds_sorted_by_y[:i])
+            conflict = all_peds_sorted_by_y[i].is_newposition_conflict(newx, newy , all_peds_sorted_by_y[:i])
             print(conflict)
             if (len(conflict) == 0):
                 all_peds_sorted_by_y[i].x = newx

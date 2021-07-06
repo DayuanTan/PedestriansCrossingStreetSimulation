@@ -37,27 +37,27 @@ class global_params:
         self.ped_walking_velocity_min = 110 #cm/s
         self.ped_walking_velocity_max = 140 #cm/s
         self.ped_walking_velocity_mean = 125 #cm/s
-        self.ped_walking_velocity_sigma = 0.1 # standard deviation
+        self.ped_walking_velocity_sigma = (self.ped_walking_velocity_max - self.ped_walking_velocity_mean) / 3  # standard deviation # max = mean + 3*sigma => sigma = (max - mean )/3
  
         self.wheelchair_rolling_velocity_min = 70 #cm/s
         self.wheelchair_rolling_velocity_max = 100 #cm/s
         self.wheelchair_rolling_velocity_mean = 85 #cm/s
-        self.wheelchair_rolling_velocity_sigma = 0.1
+        self.wheelchair_rolling_velocity_sigma = (self.wheelchair_rolling_velocity_max - self.wheelchair_rolling_velocity_mean) / 3 # max = mean + 3*sigma => sigma = (max - mean )/3
 
         self.crutches_user_walking_velocity_min = 50 #cm/s
         self.crutches_user_walking_velocity_max = 80 #cm/s
         self.crutches_user_walking_velocity_mean = 75 #cm/s
-        self.crutches_user_walking_velocity_sigma = 0.1
+        self.crutches_user_walking_velocity_sigma = (self.crutches_user_walking_velocity_max - self.crutches_user_walking_velocity_mean) / 3 # max = mean + 3*sigma => sigma = (max - mean )/3
 
         self.children_walking_velocity_min = 50 #cm/s
         self.children_walking_velocity_max = 80 #cm/s
         self.children_walking_velocity_mean = 75 #cm/s
-        self.children_walking_velocity_sigma = 0.1
+        self.children_walking_velocity_sigma = (self.children_walking_velocity_max - self.children_walking_velocity_mean) / 3 # max = mean + 3*sigma => sigma = (max - mean )/3
 
         self.elder_walking_velocity_min = 50 #cm/s
         self.elder_walking_velocity_max = 80 #cm/s
         self.elder_walking_velocity_mean = 75 #cm/s
-        self.elder_walking_velocity_sigma = 0.1
+        self.elder_walking_velocity_sigma = (self.elder_walking_velocity_max - self.elder_walking_velocity_mean) / 3 # max = mean + 3*sigma => sigma = (max - mean )/3
 
         # simulation occupied space with default value
         self.radius_of_space_occupied = {
