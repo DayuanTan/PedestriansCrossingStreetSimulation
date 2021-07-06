@@ -33,25 +33,42 @@ class Ped:
             return np.random.normal(params.elder_walking_velocity_mean, params.elder_walking_velocity_sigma, 1)[0]
 
     def set_initial_standing_position(self, params):
-        x_offset = abs(np.random.normal(params.waiting_area_position_x_offset_mean, params.waiting_area_position_x_offset_sigma, 1)[0])
-        if self.direction == "left2right":
-            self.x = params.waiting_area_length - x_offset
-        elif self.direction == "right2left":
-            self.x = params.waiting_area_length + params.crosswalk_length + x_offset
+        is_conflict = True
+        newx = 0
+        newy = 0
+        while is_conflict:
+            x_offset = abs(np.random.normal(params.waiting_area_position_x_offset_mean, params.waiting_area_position_x_offset_sigma, 1)[0])
+            if self.direction == "left2right":
+                newx = params.waiting_area_length - x_offset
+            elif self.direction == "right2left":
+                newx = params.waiting_area_length + params.crosswalk_length + x_offset
+            newy = np.random.normal(params.waiting_area_position_y_mean, params.waiting_area_position_y_sigma, 1)[0]
+
+            #check whether conflict with existing params.all_peds_lr or params.all_peds_rl
+            if self.direction == "left2right":
+                if len(self.is_newposition_conflict(newx, newy, "standing", params.all_peds_lr)) == 0:
+                    is_conflict = False
+            elif self.direction == "right2left":
+                if len(self.is_newposition_conflict(newx, newy, "standing", params.all_peds_rl)) == 0:
+                    is_conflict = False
         
-        self.y = np.random.normal(params.waiting_area_position_y_mean, params.waiting_area_position_y_sigma, 1)[0]
+        self.x = newx
+        self.y = newy
 
     def is_inside_crosswalk(self, params) -> bool:        
         if (self.x >= params.waiting_area_length and self.x <= params.waiting_area_length+params.crosswalk_length) and (self.y >= 0 and self.y <= params.crosswalk_width):
             return True
         return False
 
-    def is_newposition_conflict(self, newx: int, newy: int, others: 'Ped[]', , params) -> 'Ped[]':
-        # newx = self.x + self.velocity if self.direction == "left2right" else self.x - self.velocity
+    def is_newposition_conflict(self, newx: int, newy: int, mode: str, others: 'Ped[]') -> 'Ped[]':
         conflict = []
         for another in others:
             distance = math.sqrt((newx - another.x)^2 + (newy - another.y)^2)
-            if (distance <= self.radius + another.radius):
+            if mode == "standing":
+                radius_sum = self.radius_standing + another.radius_standing
+            elif mode == "moving":
+                radius_sum = self.radius_moving + another.radius_moving
+            if (distance <= radius_sum):
                 conflict.append(another)
         return conflict
     
