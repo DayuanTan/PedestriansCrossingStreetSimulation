@@ -3,7 +3,7 @@ import math
 class Circles:
 
     @staticmethod
-    def get_intersections(x0, y0, r0, x1, y1, r1):    
+    def get_twocircles_intersections(x0, y0, r0, x1, y1, r1):    
         # Theory background: http://paulbourke.net/geometry/circlesphere/ 
         # circle 1: (x0, y0), radius r0
         # circle 2: (x1, y1), radius r1
@@ -33,4 +33,4 @@ class Circles:
             return (x3, y3, x4, y4)
 
  
-# print(Circles.get_intersections(1,1,1,4,1,1))
+# print(Circles.get_twocircles_intersections(1,1,1,4,1,1))
