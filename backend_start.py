@@ -19,37 +19,38 @@ print("crosswalk_length: ", params.crosswalk_length)
 
 for i in range(0, params.ped_amount_lr):
     params.all_peds_lr.append(Ped.Ped("ped", "left2right", params))
-    print("Direc: ",  params.all_peds_lr[i].direction, " Coor: ", params.all_peds_lr[i].x, params.all_peds_lr[i].y, params.all_peds_lr[i].type, params.all_peds_lr[i].velocity, params.all_peds_lr[i].radius)
+    print("Direc: ",  params.all_peds_lr[i].direction, " Coor: ", params.all_peds_lr[i].x, params.all_peds_lr[i].y, params.all_peds_lr[i].type, params.all_peds_lr[i].velocity)
 for i in range(0, params.wheelchair_amount_lr):
     params.all_peds_lr.append(Ped.Ped("wheelchair", "left2right", params))
-    print("Direc: ",  params.all_peds_lr[i].direction, " Coor: ", params.all_peds_lr[i].x, params.all_peds_lr[i].y, params.all_peds_lr[i].type, params.all_peds_lr[i].velocity, params.all_peds_lr[i].radius)
+    print("Direc: ",  params.all_peds_lr[i].direction, " Coor: ", params.all_peds_lr[i].x, params.all_peds_lr[i].y, params.all_peds_lr[i].type, params.all_peds_lr[i].velocity)
 for i in range(0, params.crutches_user_amount_lr):
     params.all_peds_lr.append(Ped.Ped("crutches_user", "left2right", params))
-    print("Direc: ",  params.all_peds_lr[i].direction, " Coor: ", params.all_peds_lr[i].x, params.all_peds_lr[i].y, params.all_peds_lr[i].type, params.all_peds_lr[i].velocity, params.all_peds_lr[i].radius)
+    print("Direc: ",  params.all_peds_lr[i].direction, " Coor: ", params.all_peds_lr[i].x, params.all_peds_lr[i].y, params.all_peds_lr[i].type, params.all_peds_lr[i].velocity)
 for i in range(0, params.children_amount_lr):
     params.all_peds_lr.append(Ped.Ped("child", "left2right", params))
-    print("Direc: ",  params.all_peds_lr[i].direction, " Coor: ", params.all_peds_lr[i].x, params.all_peds_lr[i].y, params.all_peds_lr[i].type, params.all_peds_lr[i].velocity, params.all_peds_lr[i].radius)
+    print("Direc: ",  params.all_peds_lr[i].direction, " Coor: ", params.all_peds_lr[i].x, params.all_peds_lr[i].y, params.all_peds_lr[i].type, params.all_peds_lr[i].velocity)
 for i in range(0, params.elder_amount_lr):
     params.all_peds_lr.append(Ped.Ped("elder", "left2right", params))
-    print("Direc: ",  params.all_peds_lr[i].direction, " Coor: ", params.all_peds_lr[i].x, params.all_peds_lr[i].y, params.all_peds_lr[i].type, params.all_peds_lr[i].velocity, params.all_peds_lr[i].radius)
+    print("Direc: ",  params.all_peds_lr[i].direction, " Coor: ", params.all_peds_lr[i].x, params.all_peds_lr[i].y, params.all_peds_lr[i].type, params.all_peds_lr[i].velocity)
+
 for i in range(0, params.ped_amount_rl):
-    params.all_peds_lr.append(Ped.Ped("ped", "right2left", params))
-    print("Direc: ",  params.all_peds_lr[i].direction, " Coor: ", params.all_peds_lr[i].x, params.all_peds_lr[i].y, params.all_peds_lr[i].type, params.all_peds_lr[i].velocity, params.all_peds_lr[i].radius)
+    params.all_peds_rl.append(Ped.Ped("ped", "right2left", params))
+    print("Direc: ",  params.all_peds_rl[i].direction, " Coor: ", params.all_peds_rl[i].x, params.all_peds_rl[i].y, params.all_peds_rl[i].type, params.all_peds_rl[i].velocity)
 for i in range(0, params.wheelchair_amount_rl):
-    params.all_peds_lr.append(Ped.Ped("wheelchair", "right2left", params))
-    print("Direc: ",  params.all_peds_lr[i].direction, " Coor: ", params.all_peds_lr[i].x, params.all_peds_lr[i].y, params.all_peds_lr[i].type, params.all_peds_lr[i].velocity, params.all_peds_lr[i].radius)
+    params.all_peds_rl.append(Ped.Ped("wheelchair", "right2left", params))
+    print("Direc: ",  params.all_peds_rl[i].direction, " Coor: ", params.all_peds_rl[i].x, params.all_peds_rl[i].y, params.all_peds_rl[i].type, params.all_peds_rl[i].velocity)
 for i in range(0, params.crutches_user_amount_rl):
-    params.all_peds_lr.append(Ped.Ped("crutches_user", "right2left", params))
-    print("Direc: ",  params.all_peds_lr[i].direction, " Coor: ", params.all_peds_lr[i].x, params.all_peds_lr[i].y, params.all_peds_lr[i].type, params.all_peds_lr[i].velocity, params.all_peds_lr[i].radius)
+    params.all_peds_rl.append(Ped.Ped("crutches_user", "right2left", params))
+    print("Direc: ",  params.all_peds_rl[i].direction, " Coor: ", params.all_peds_rl[i].x, params.all_peds_rl[i].y, params.all_peds_rl[i].type, params.all_peds_rl[i].velocity)
 for i in range(0, params.children_amount_rl):
-    params.all_peds_lr.append(Ped.Ped("child", "right2left", params))
-    print("Direc: ",  params.all_peds_lr[i].direction, " Coor: ", params.all_peds_lr[i].x, params.all_peds_lr[i].y, params.all_peds_lr[i].type, params.all_peds_lr[i].velocity, params.all_peds_lr[i].radius)
+    params.all_peds_rl.append(Ped.Ped("child", "right2left", params))
+    print("Direc: ",  params.all_peds_rl[i].direction, " Coor: ", params.all_peds_rl[i].x, params.all_peds_rl[i].y, params.all_peds_rl[i].type, params.all_peds_rl[i].velocity)
 for i in range(0, params.elder_amount_rl):
-    params.all_peds_lr.append(Ped.Ped("elder", "right2left", params))
-    print("Direc: ",  params.all_peds_lr[i].direction, " Coor: ", params.all_peds_lr[i].x, params.all_peds_lr[i].y, params.all_peds_lr[i].type, params.all_peds_lr[i].velocity, params.all_peds_lr[i].radius)
+    params.all_peds_rl.append(Ped.Ped("elder", "right2left", params))
+    print("Direc: ",  params.all_peds_rl[i].direction, " Coor: ", params.all_peds_rl[i].x, params.all_peds_rl[i].y, params.all_peds_rl[i].type, params.all_peds_rl[i].velocity)
 
 
-params.all_peds = params.all_peds_lr + params.all_peds_lr
+params.all_peds = params.all_peds_lr + params.all_peds_rl
 
 total_size_lr = params.ped_amount_lr + params.wheelchair_amount_lr + params.crutches_user_amount_lr + params.children_amount_lr + params.elder_amount_lr
 total_size_rl = params.ped_amount_rl + params.wheelchair_amount_rl + params.crutches_user_amount_rl + params.children_amount_rl + params.elder_amount_rl
@@ -64,9 +65,12 @@ if total_size != len(params.all_peds):
 # all_peds_sorted_by_x = sorted(all_peds, key=operator.attrgetter('y'), reverse=True)
 params.all_peds_lr_sorted_by_x = sorted(params.all_peds_lr, key=operator.attrgetter('x'), reverse=True)
 print("params.all_peds_lr_sorted_by_x: ", params.all_peds_lr_sorted_by_x, "\n")
+for ped_i in params.all_peds_lr_sorted_by_x:
+    print(ped_i.x, ped_i.y)
 params.all_peds_rl_sorted_by_x = sorted(params.all_peds_rl, key=operator.attrgetter('x'))
 print("params.all_peds_rl_sorted_by_x: ", params.all_peds_rl_sorted_by_x, "\n")
-
+for ped_i in params.all_peds_rl_sorted_by_x:
+    print(ped_i.x, ped_i.y)
 
 #
 # Move

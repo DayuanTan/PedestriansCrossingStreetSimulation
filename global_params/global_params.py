@@ -66,14 +66,14 @@ class global_params:
             "ped": 30, #cm
             "wheelchair": 70, 
             "crutches_user": 40,
-            "children": 30,
+            "child": 30,
             "elder": 30
         }
         self.radius_of_space_occupied_when_moving = {
             "ped": 50, #cm
             "wheelchair": 70, 
             "crutches_user": 90,
-            "children": 40,
+            "child": 40,
             "elder": 50
         }
 

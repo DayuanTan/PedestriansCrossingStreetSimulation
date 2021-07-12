@@ -12,11 +12,11 @@ class Ped:
         self.y = 0
         self.type = type # one of {"ped", "wheelchair", "crutches_user", "child", "elder"}
         self.direction = direction # one of {"left2right", "right2left"}
-        self.velocity = self.set_velocity(type)
+        self.velocity = self.set_velocity(type, params)
         self.radius_standing = params.radius_of_space_occupied_when_standing[type]
         self.radius_moving = params.radius_of_space_occupied_when_moving[type]
 
-        self.set_initial_standing_position()
+        self.set_initial_standing_position(params)
         
 
 
@@ -63,7 +63,7 @@ class Ped:
     def is_newposition_conflict(self, newx: int, newy: int, mode: str, others: 'Ped[]') -> 'Ped[]':
         conflict = []
         for another in others:
-            distance = math.sqrt((newx - another.x)^2 + (newy - another.y)^2)
+            distance = math.sqrt((newx - another.x)**2 + (newy - another.y)**2)
             if mode == "standing":
                 radius_sum = self.radius_standing + another.radius_standing
             elif mode == "moving":
