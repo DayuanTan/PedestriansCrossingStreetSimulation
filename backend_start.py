@@ -3,9 +3,6 @@ from backend.Circles import Circles as Circles
 import operator
 import global_params.global_params as global_params
 
-SIMU_STEP_TIME = 1 
-
-
 
 #
 # Initial
@@ -72,14 +69,37 @@ print("params.all_peds_rl_sorted_by_x: ", params.all_peds_rl_sorted_by_x, "\n")
 for ped_i in params.all_peds_rl_sorted_by_x:
     print(ped_i.x, ped_i.y)
 
+params.all_peds_ordered = list()
+for ped_i in params.all_peds_lr_sorted_by_x:
+    params.all_peds_ordered.append(ped_i)
+    params.all_peds_ordered.append("placeholder") # add placeholder every one element
+print("len(params.all_peds_ordered): ", len(params.all_peds_ordered))
+for i in range(len(params.all_peds_rl_sorted_by_x)):
+    params.all_peds_ordered[i*2 + 1] = params.all_peds_rl_sorted_by_x[i] # replace those placeholder
+print("len(params.all_peds_ordered): ", len(params.all_peds_ordered))
+for i in range(len(params.all_peds_ordered)): # delete all remaining placeholder
+    print(i, " ", params.all_peds_ordered[i] )
+    if params.all_peds_ordered[i] == "placeholder":
+        params.all_peds_ordered.pop(i)
+for ped_i in params.all_peds_ordered:
+    print(ped_i.x, ped_i.y)
+
+print("\nAll pedestrians have been set up their initial standing positions!\n")
+
 #
 # Move
 #
 
+for ped_i in params.all_peds_ordered:
+    ped_i.move_one_step(params)
+for ped_i in params.all_peds_ordered:
+    print(ped_i.x, ped_i.y)
+
 # for i in range(total_size):
+
 #     newx = all_peds_sorted_by_y[i].x + all_peds_sorted_by_y[i].velocity 
 #     newy = all_peds_sorted_by_y[i].y
-#     conflict = all_peds_sorted_by_y[i].is_newposition_conflict(newx, newy , all_peds_sorted_by_y[i+1:])
+#     conflict = all_peds_sorted_by_y[i].get_all_conflicts_with_newposition(newx, newy , all_peds_sorted_by_y[i+1:])
 #     print("conflict: ", len(conflict))
 #     if (len(conflict) == 0):
 #         all_peds_sorted_by_y[i].x = newx
@@ -91,7 +111,7 @@ for ped_i in params.all_peds_rl_sorted_by_x:
 #             print(intersection)
 #             newx = intersection[2]
 #             newy = intersection[3]
-#             conflict = all_peds_sorted_by_y[i].is_newposition_conflict(newx, newy , all_peds_sorted_by_y[:i])
+#             conflict = all_peds_sorted_by_y[i].get_all_conflicts_with_newposition(newx, newy , all_peds_sorted_by_y[:i])
 #             print(conflict)
 #             if (len(conflict) == 0):
 #                 all_peds_sorted_by_y[i].x = newx

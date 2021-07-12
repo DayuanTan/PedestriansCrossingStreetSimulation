@@ -46,10 +46,10 @@ class Ped:
 
             #check whether conflict with existing params.all_peds_lr or params.all_peds_rl
             if self.direction == "left2right":
-                if len(self.is_newposition_conflict(newx, newy, "standing", params.all_peds_lr)) == 0:
+                if not self.is_newposition_conflicted(newx, newy, "standing", params.all_peds_lr):
                     is_conflict = False
             elif self.direction == "right2left":
-                if len(self.is_newposition_conflict(newx, newy, "standing", params.all_peds_rl)) == 0:
+                if not self.is_newposition_conflicted(newx, newy, "standing", params.all_peds_rl):
                     is_conflict = False
         
         self.x = newx
@@ -60,21 +60,66 @@ class Ped:
             return True
         return False
 
-    def is_newposition_conflict(self, newx: int, newy: int, mode: str, others: 'Ped[]') -> 'Ped[]':
-        conflict = []
+    # def get_all_conflicts_with_newposition(self, newx: int, newy: int, mode: str, others: 'Ped[]') -> 'Ped[]':
+    #     conflict = []
+    #     for another in others:
+    #         distance = math.sqrt((newx - another.x)**2 + (newy - another.y)**2)
+    #         radius_sum = 0
+    #         if mode == "standing":
+    #             radius_sum = self.radius_standing + another.radius_standing
+    #         elif mode == "moving":
+    #             radius_sum = self.radius_moving + another.radius_moving
+    #         if (distance <= radius_sum):
+    #             conflict.append(another)
+    #     return conflict
+
+    def is_newposition_conflicted(self, newx: int, newy: int, mode: str, others: 'Ped[]') -> bool:
         for another in others:
             distance = math.sqrt((newx - another.x)**2 + (newy - another.y)**2)
+            radius_sum = 0
             if mode == "standing":
                 radius_sum = self.radius_standing + another.radius_standing
             elif mode == "moving":
                 radius_sum = self.radius_moving + another.radius_moving
             if (distance <= radius_sum):
-                conflict.append(another)
-        return conflict
-    
+                return True
+        return False
+
+    def generate_1000_newpositions(self, params):
+        all_newpositions = list()
+        farthest_newx = (self.x + self.velocity * params.step_time) if self.direction == "left2right" else (self.x - self.velocity * params.step_time)
+        farthest_newy = self.y
+        all_newpositions.append([farthest_newx, farthest_newy])
+
+        offset = self.velocity * params.step_time / 1000
+        for i in range(999):
+            newx = farthest_newx - offset * i
+            circle_radius_sq = (self.velocity * params.step_time) ** 2
+            x_x0_sq = (newx - self.x)**2
+            print("newx : ", newx, " self.x: ", self.x )
+            print("circle_radius_sq : ", circle_radius_sq )
+            print("x_x0_sq: ",  x_x0_sq)
+            print("circle_radius_sq - x_x0_sq: ", circle_radius_sq - x_x0_sq)
+            sqrt_abs = math.sqrt(circle_radius_sq - x_x0_sq)
+            newy1 = sqrt_abs + self.y
+            newy2 = 0 - sqrt_abs + self.y
+            all_newpositions.append([newx, newy1])
+            all_newpositions.append([newx, newy2])
+        return all_newpositions
+
+
+
     def move_one_step(self, params):
-        newx = (self.x + self.velocity * self.step_time) if self.direction == "left2right" else (self.x - self.velocity * self.step_time)
-        newy = self.y
+        all_newpositions = self.generate_1000_newpositions(params)
+        for newx, newy in all_newpositions:
+            print("new pos: ", newx, newy)
+        for newx, newy in all_newpositions:
+            if not self.is_newposition_conflicted(newx, newy, "moving", params.all_peds):
+                self.x = newx
+                self.y = newy
+                break
+
+    
     # def move_one_second(self):
     #     newx = self.x + self.velocity if self.direction == "left2right" else self.x - self.velocity
     #     newy = self.y

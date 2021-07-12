@@ -80,9 +80,9 @@ class global_params:
         self.all_peds_lr = list() # all ped who want go from left to right
         self.all_peds_rl = list() # all ped who want go from right to left
         self.all_peds = list()  # all ped 
-        self.all_peds_lr_sorted_by_x = list() # all sorted ped who want go from left to right, sorted by x reversed
-        self.all_peds_rl_sorted_by_x = list() # all sorted ped who want go from right to left, sorted by x 
-
+        self.all_peds_lr_sorted_by_x = list() # all sorted ped who want go from left to right, sorted by x reversed, biggest x first
+        self.all_peds_rl_sorted_by_x = list() # all sorted ped who want go from right to left, sorted by x, smallest x first 
+        self.all_peds_ordered = list() # combine above two, like this [ped1_lr, ped1_rl, ped2_lr, ped2_rl, ped3_lr, ped3_rl, ...]
 
         #
         # params needed only in gui 
