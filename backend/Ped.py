@@ -80,12 +80,15 @@ class Ped:
         for another in others:
             if another.status == "finished" or another.status == "standing":
                 continue
+            print("is_newposition_conflicted another: ", another.status)
             distance = math.sqrt((newx - another.x)**2 + (newy - another.y)**2)
             radius_sum = 0
             if mode == "standing":
                 radius_sum = self.radius_standing + another.radius_standing
             elif mode == "moving":
                 radius_sum = self.radius_moving + another.radius_moving
+            print("curr: ", self.x, " ", self.y, " another: ", another.x, " ", another.y)
+            print("radius_sum: ", radius_sum, " distance: ", distance)
             if (distance < radius_sum):
                 return True
         return False
@@ -136,6 +139,7 @@ class Ped:
                     print("old pos: ", self.x, self.y)
                     self.x = newx
                     self.y = newy
+                    self.status = "moving"
                     print("new pos: ", newx, newy)
                     return
             counter += 1

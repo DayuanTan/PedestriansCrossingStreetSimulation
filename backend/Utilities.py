@@ -5,7 +5,7 @@ class Utilities:
     @staticmethod
     def is_all_peds_finish(params):
         for ped_i in params.all_peds_ordered:
-            if ped_i.finished == False:
+            if ped_i.status != "finished":
                 return False            
         return True
 

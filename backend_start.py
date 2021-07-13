@@ -92,16 +92,16 @@ print("\nAll pedestrians have been set up their initial standing positions!\n")
 #
 # Move
 #
-# while not Utilities.is_all_peds_finish(params):
-for ped_i in params.all_peds_ordered:
-    ped_i.status = "moving"
-    ped_i.move_one_step(params)
-print("\nAfter one move:\n")
-for ped_i in params.all_peds_ordered:
-    print(ped_i.x, ped_i.y)
+while not Utilities.is_all_peds_finish(params):
+    for ped_i in params.all_peds_ordered:
+        ped_i.move_one_step(params)
+    print("\nAfter one move:\n")
+    for ped_i in params.all_peds_ordered:
+        print(ped_i.x, ped_i.y)
+    Utilities.plot_positions(params)
 
 print("\nFinished!\n")
 for ped_i in params.all_peds_ordered:
     print(ped_i.x, ped_i.y)
 
-Utilities.plot_positions(params)
+
