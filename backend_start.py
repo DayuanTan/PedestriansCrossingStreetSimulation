@@ -1,7 +1,10 @@
 import backend.Ped as Ped
+from backend.Utilities import Utilities as Utilities
 from backend.Circles import Circles as Circles
+
 import operator
 import global_params.global_params as global_params
+
 
 
 #
@@ -89,31 +92,16 @@ print("\nAll pedestrians have been set up their initial standing positions!\n")
 #
 # Move
 #
-
+# while not Utilities.is_all_peds_finish(params):
 for ped_i in params.all_peds_ordered:
+    ped_i.status = "moving"
     ped_i.move_one_step(params)
 print("\nAfter one move:\n")
 for ped_i in params.all_peds_ordered:
     print(ped_i.x, ped_i.y)
 
-# for i in range(total_size):
+print("\nFinished!\n")
+for ped_i in params.all_peds_ordered:
+    print(ped_i.x, ped_i.y)
 
-#     newx = all_peds_sorted_by_y[i].x + all_peds_sorted_by_y[i].velocity 
-#     newy = all_peds_sorted_by_y[i].y
-#     conflict = all_peds_sorted_by_y[i].get_all_conflicts_with_newposition(newx, newy , all_peds_sorted_by_y[i+1:])
-#     print("conflict: ", len(conflict))
-#     if (len(conflict) == 0):
-#         all_peds_sorted_by_y[i].x = newx
-#         all_peds_sorted_by_y[i].y = newy
-#     else:
-#         for in_front_ped in all_peds_sorted_by_y[i+1:]:
-#             print("test: ", Circles.get_intersections(1,1,1,2,1,1), "\n")
-#             intersection = Circles.get_intersections(all_peds_sorted_by_y[i].x, all_peds_sorted_by_y[i].y, all_peds_sorted_by_y[i].velocity * SIMU_STEP_TIME, in_front_ped.x, in_front_ped.y, in_front_ped.radius + all_peds_sorted_by_y[i].radius)
-#             print(intersection)
-#             newx = intersection[2]
-#             newy = intersection[3]
-#             conflict = all_peds_sorted_by_y[i].get_all_conflicts_with_newposition(newx, newy , all_peds_sorted_by_y[:i])
-#             print(conflict)
-#             if (len(conflict) == 0):
-#                 all_peds_sorted_by_y[i].x = newx
-#                 all_peds_sorted_by_y[i].y = newy
+Utilities.plot_positions(params)
