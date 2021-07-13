@@ -43,6 +43,9 @@ class Ped:
             elif self.direction == "right2left":
                 newx = params.waiting_area_length + params.crosswalk_length + x_offset
             newy = np.random.normal(params.waiting_area_position_y_mean, params.waiting_area_position_y_sigma, 1)[0]
+            if newx < 0 or newx > params.waiting_area_length + params.crosswalk_length + params.waiting_area_length: # outside, so drop
+                is_conflict = True
+                continue
 
             #check whether conflict with existing params.all_peds_lr or params.all_peds_rl
             if self.direction == "left2right":
@@ -96,12 +99,14 @@ class Ped:
             newx = farthest_newx - offset * i
             circle_radius_sq = (self.velocity * params.step_time) ** 2
             x_x0_sq = (newx - self.x)**2
-            print("self.velocity:  ",self.velocity)
-            print("self.velocity * params.step_time: ", self.velocity * params.step_time)
-            print("newx : ", newx, " self.x: ", self.x )
-            print("circle_radius_sq : ", circle_radius_sq )
-            print("x_x0_sq: ",  x_x0_sq)
-            print("circle_radius_sq - x_x0_sq: ", circle_radius_sq - x_x0_sq)
+            # print("self.velocity:  ",self.velocity)
+            # print("self.velocity * params.step_time: ", self.velocity * params.step_time)
+            # print("newx : ", newx, " self.x: ", self.x )
+            # print("circle_radius_sq : ", circle_radius_sq )
+            # print("x_x0_sq: ",  x_x0_sq)
+            # print("circle_radius_sq - x_x0_sq: ", circle_radius_sq - x_x0_sq)
+            if circle_radius_sq - x_x0_sq < 0: # this case is weired and should not happen in theory but it happens rarely. Guess it is becuase precision error.
+                continue
             sqrt_abs = math.sqrt(circle_radius_sq - x_x0_sq)
             newy1 = sqrt_abs + self.y
             newy2 = 0 - sqrt_abs + self.y
@@ -112,9 +117,14 @@ class Ped:
 
 
     def move_one_step(self, params):
+        if self.direction == "left2right" and self.x > params.crosswalk_length + params.waiting_area_length:
+            return
+        if self.direction == "right2left" and self.x < params.waiting_area_length:
+            return
+        
         all_newpositions = self.generate_1000_newpositions(params)
-        for newx, newy in all_newpositions:
-            print("new pos: ", newx, newy)
+        # for newx, newy in all_newpositions:
+        #     print("new pos: ", newx, newy)
         for newx, newy in all_newpositions:
             if not self.is_newposition_conflicted(newx, newy, "moving", params.all_peds):
                 self.x = newx
@@ -122,11 +132,3 @@ class Ped:
                 break
 
     
-    # def move_one_second(self):
-    #     newx = self.x + self.velocity if self.direction == "left2right" else self.x - self.velocity
-    #     newy = self.y
-    #     if (is_newspace_conflict(newx, newy, ))
-    #     if self.direction == "left2right":
-    #         self.x = self.x + self.velocity
-
-

@@ -92,6 +92,7 @@ print("\nAll pedestrians have been set up their initial standing positions!\n")
 
 for ped_i in params.all_peds_ordered:
     ped_i.move_one_step(params)
+print("\nAfter one move:\n")
 for ped_i in params.all_peds_ordered:
     print(ped_i.x, ped_i.y)
 
