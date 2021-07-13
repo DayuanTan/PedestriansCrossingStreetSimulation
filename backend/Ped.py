@@ -92,10 +92,12 @@ class Ped:
         all_newpositions.append([farthest_newx, farthest_newy])
 
         offset = self.velocity * params.step_time / 1000
-        for i in range(999):
+        for i in range(1, 999):
             newx = farthest_newx - offset * i
             circle_radius_sq = (self.velocity * params.step_time) ** 2
             x_x0_sq = (newx - self.x)**2
+            print("self.velocity:  ",self.velocity)
+            print("self.velocity * params.step_time: ", self.velocity * params.step_time)
             print("newx : ", newx, " self.x: ", self.x )
             print("circle_radius_sq : ", circle_radius_sq )
             print("x_x0_sq: ",  x_x0_sq)
