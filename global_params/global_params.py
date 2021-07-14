@@ -6,7 +6,7 @@ class global_params:
         # params needed in both gui and backend
         #
 
-        self.step_time = 1 # second # each simulation step reflects how long in read world
+        self.step_time = 0.5 # second # each simulation step reflects how long in read world
 
         # simulation area with default value
         self.crosswalk_width = 300 #cm

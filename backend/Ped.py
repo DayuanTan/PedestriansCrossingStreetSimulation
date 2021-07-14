@@ -80,8 +80,17 @@ class Ped:
     #     return conflict
 
     def is_newposition_conflicted(self, newx: int, newy: int, mode: str, params) -> bool:
-        for another in params.all_peds:
-            if another.status == "finished" or another.status == "standing":
+        used_all_peds = 0
+        if mode == "standing":
+            if self.direction == "left2right":
+                used_all_peds = params.all_peds_lr 
+            elif self.direction == "right2left":
+                used_all_peds = params.all_peds_rl 
+        if mode == "moving":
+            used_all_peds = params.all_peds
+        
+        for another in used_all_peds:
+            if mode == "moving" and (another.status == "finished"):
                 continue
             if another.status == self.status and another.x == self.x and another.y == self.y and another.direction == self.direction and another.velocity == self.velocity:
                 continue
