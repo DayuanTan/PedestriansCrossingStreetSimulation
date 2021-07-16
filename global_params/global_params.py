@@ -22,6 +22,7 @@ class global_params:
         # simulation area with default value
         self.crosswalk_width = 300 #cm
         self.crosswalk_length = 1000 #cm
+        self.waiting_area_width = self.crosswalk_width
         self.waiting_area_length = 300 #cm
 
         self.waiting_area_position_x_offset_min = 0 - self.waiting_area_length
@@ -109,7 +110,7 @@ class global_params:
         self.children_amount_lr_entry = 0
         self.children_amount_rl_entry = 0
         
-        # self.frame = 0
+        self.frame = 0
 
         # gui display, second window, ped crossing 
         self.cross_window = 0
