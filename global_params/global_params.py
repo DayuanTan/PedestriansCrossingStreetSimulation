@@ -3,6 +3,17 @@ class global_params:
         super().__init__()
 
         #
+        # log system: Choose any from "core", "debug", "plot" as log keywords, then it will print different levels of logs.
+        # For common use, you many want to leave self.log_keywords as empty. 
+        # Include "core" to print some basic information. Include "plot" to plot pedestrians position for each step. Include "debug" to print helpful variables values.
+        # If include "debug", it is recommended to run like this "python3 backend_example.py > log.txt" since the log would be huge.
+        # 
+        # self.log_keywords = ["core", "debug", "plot"]
+        # self.log_keywords = ["core", "plot"]
+        self.log_keywords = ["core"]
+        # self.log_keywords = []
+
+        #
         # params needed in both gui and backend
         #
 

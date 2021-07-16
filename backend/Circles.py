@@ -33,4 +33,3 @@ class Circles:
             return (x3, y3, x4, y4)
 
  
-# print(Circles.get_twocircles_intersections(1,1,1,4,1,1))
