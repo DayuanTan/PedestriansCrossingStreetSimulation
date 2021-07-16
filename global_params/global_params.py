@@ -25,6 +25,7 @@ class global_params:
         self.crosswalk_length = 1000 #cm
         self.waiting_area_width = self.crosswalk_width
         self.waiting_area_length = 300 #cm
+        self.total_length = self.waiting_area_length * 2 + self.crosswalk_length
 
         self.waiting_area_position_x_offset_min = 0 - self.waiting_area_length
         self.waiting_area_position_x_offset_max = self.waiting_area_length
