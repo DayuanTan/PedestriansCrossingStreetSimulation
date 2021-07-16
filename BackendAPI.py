@@ -7,12 +7,11 @@ import global_params.global_params as global_params
 
 class BackendAPI:
     @staticmethod
-    def get_ped_needed_time_to_cross():
+    def set_peds_initial_positions(params):
         #
         # Initial
         #
-        global params
-        params = global_params.global_params()
+        
 
         if "core" in params.log_keywords:
             print("Parameters applied!\ncrosswalk_width: ", params.crosswalk_width)
@@ -103,22 +102,25 @@ class BackendAPI:
 
         if "core" in params.log_keywords: print("\nAll pedestrians have been set up their initial standing positions!\n")
 
-    
+    @staticmethod
+    def cross_street(params):
         #
         # Move
         #
-        step_counter = 0
+        params.step_counter = 0
         while not Utilities.is_all_peds_finish(params):
             for ped_i in params.all_peds_ordered:
                 ped_i.move_one_step(params)
-            step_counter += 1
+            params.step_counter += 1
             if "core" in params.log_keywords: 
                 print("\nAfter one move:\n")
                 for ped_i in params.all_peds_ordered:
                     print(ped_i.previousx, " --> ", ped_i.x, " ", ped_i.previousy, " --> ", ped_i.y)
             if "plot" in params.log_keywords: Utilities.plot_positions(params)
 
-        used_time = step_counter *  params.step_time
+    @staticmethod
+    def get_ped_needed_time_to_cross(params):
+        used_time = params.step_counter *  params.step_time
         if "core" in params.log_keywords: print("\nFinished! Used time is: ", used_time, "\n")
         if "debug" in params.log_keywords: 
             for ped_i in params.all_peds_ordered:

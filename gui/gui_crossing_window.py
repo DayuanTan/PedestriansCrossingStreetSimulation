@@ -1,4 +1,7 @@
 import tkinter as tk
+import backend.Ped as Ped
+from BackendAPI import BackendAPI
+from backend.Utilities import Utilities as Utilities
 
 def begin_crossing_func(root, params):
       
@@ -37,12 +40,14 @@ def begin_crossing_func(root, params):
     params.cross_bg_canvas.create_image(200,100, image=params.ped_lr_img, anchor=tk.NW)
     print("png a: ")
     
+    BackendAPI.set_peds_initial_positions()
+    Utilities.plot_positions(params)
     print("params.ped_amount_lr: ", params.ped_amount_lr)
-    if params.ped_amount_lr <= 20:
-        for i in range(1, 6):
-            print(i)
-            params.waiting_area_left_canvas_images_dict[i] = params.cross_bg_canvas.create_image(177, 95 + 40 * (i - 1), image=params.ped_lr_img,
-                                                                             anchor=tk.NW)
+    # if params.ped_amount_lr <= 20:
+    #     for i in range(1, 6):
+    #         print(i)
+    #         params.waiting_area_left_canvas_images_dict[i] = params.cross_bg_canvas.create_image(177, 95 + 40 * (i - 1), image=params.ped_lr_img,
+    #                                                                          anchor=tk.NW)
 
     # params.cross_window.mainloop()
     # move ped
