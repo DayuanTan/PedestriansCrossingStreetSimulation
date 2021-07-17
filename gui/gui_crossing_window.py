@@ -39,22 +39,25 @@ def begin_crossing_func(root, params):
 
     params.ped_lr_img = tk.PhotoImage(file="gui/img/ped_lr.png")
     print("png 1: ", params.ped_lr_img)
-    params.cross_bg_canvas.create_image(200,100, image=params.ped_lr_img, anchor=tk.NW)
+    params.cross_bg_canvas.create_image(245,135, image=params.ped_lr_img, anchor=tk.NW)
+    params.cross_bg_canvas.create_image(245,400, image=params.ped_lr_img, anchor=tk.NW)
+    params.cross_bg_canvas.create_image(890,135, image=params.ped_lr_img, anchor=tk.NW)
+    params.cross_bg_canvas.create_image(890,400, image=params.ped_lr_img, anchor=tk.NW)
     print("png 1 a: ")
-    params.ped_rl_img = tk.PhotoImage(file="gui/img/ped_rl.png")
-    print("png 2: ", params.ped_rl_img)
-    params.cross_bg_canvas.create_image(800,100, image=params.ped_rl_img, anchor=tk.NW)
-    print("png 2 a: ")
+    # params.ped_rl_img = tk.PhotoImage(file="gui/img/ped_rl.png")
+    # print("png 2: ", params.ped_rl_img)
+    # params.cross_bg_canvas.create_image(800,100, image=params.ped_rl_img, anchor=tk.NW)
+    # print("png 2 a: ")
     
     BackendAPI.set_peds_initial_positions(params)
     Utilities.plot_positions(params)
     print("params.ped_amount_lr: ", params.ped_amount_lr)
     # scale ped coordinates to frame length and width: ped.x / params.total_length  = unknown / frame width; ped.y / params.crosswalk_width  = unknown / frame height
-    counter = 0
-    for ped_i in params.all_peds_lr:
-        params.waiting_area_left_canvas_images_dict[counter] = params.cross_bg_canvas.create_image(ped_i.x * frame_width / params.total_length, frame_height - ped_i.y * frame_height / params.crosswalk_width, 
-                                                                                                    image=params.ped_lr_img, anchor=tk.NW)
-        counter += 1
+    # counter = 0
+    # for ped_i in params.all_peds_lr:
+    #     params.waiting_area_left_canvas_images_dict[counter] = params.cross_bg_canvas.create_image(ped_i.x * frame_width / params.total_length, frame_height - ped_i.y * frame_height / params.crosswalk_width, 
+    #                                                                                                 image=params.ped_lr_img, anchor=tk.NW)
+    #     counter += 1
     # for ped_i in params.all_peds_rl:
     #     params.waiting_area_left_canvas_images_dict[counter] = params.cross_bg_canvas.create_image(ped_i.x, ped_i.y, image=params.ped_rl_img,
     #                                                                          anchor=tk.NW)
