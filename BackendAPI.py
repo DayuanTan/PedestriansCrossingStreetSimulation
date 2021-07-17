@@ -101,6 +101,7 @@ class BackendAPI:
                 print(ped_i.x, ped_i.y)
 
         if "core" in params.log_keywords: print("\nAll pedestrians have been set up their initial standing positions!\n")
+        if "plot" in params.log_keywords: Utilities.plot_positions(params, "standing")
 
     @staticmethod
     def cross_street(params):
@@ -116,7 +117,7 @@ class BackendAPI:
                 print("\nAfter one move:\n")
                 for ped_i in params.all_peds_ordered:
                     print(ped_i.previousx, " --> ", ped_i.x, " ", ped_i.previousy, " --> ", ped_i.y)
-            if "plot" in params.log_keywords: Utilities.plot_positions(params)
+            if "plot" in params.log_keywords: Utilities.plot_positions(params, "moving")
 
     @staticmethod
     def get_ped_needed_time_to_cross(params):

@@ -17,7 +17,7 @@ class global_params:
         # params needed in both gui and backend
         #
 
-        self.step_time = 1 # seconds; each simulation step reflects how long in read world
+        self.step_time = 3 # seconds; each simulation step reflects how long in read world
         self.step_counter = 0 # how many simulation steps it use
 
         # simulation area with default value
