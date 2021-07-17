@@ -45,8 +45,8 @@ class Utilities:
         py.text(params.waiting_area_length - 200, params.crosswalk_width / 3, "Waiting\narea\non one\nside")
         py.text(params.waiting_area_length + params.crosswalk_length + 10, params.crosswalk_width / 3, "Waiting\narea\non another\nside")
         py.text(params.waiting_area_length + params.crosswalk_length/3, params.crosswalk_width / 2, "Crosswalk area")
-        py.text(params.waiting_area_length + params.crosswalk_length/3, params.crosswalk_width + 10, "Outside crosswalk area")
-        py.text(params.waiting_area_length + params.crosswalk_length/3, -30, "Outside crosswalk area")
+        py.text(params.waiting_area_length + params.crosswalk_length/3, params.crosswalk_width + 100, "Outside crosswalk area")
+        py.text(params.waiting_area_length + params.crosswalk_length/3, -100, "Outside crosswalk area")
 
         py.show()
 

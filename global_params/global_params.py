@@ -117,6 +117,8 @@ class global_params:
         # gui display, second window, ped crossing 
         self.cross_window = 0
         self.cross_frame = 0
+        self.cross_frame_width = 1200
+        self.cross_frame_height = 600
         self.cross_bg_canvas = 0
         self.background = 0
         self.waiting_area_left_canvas_images_dict = dict()
