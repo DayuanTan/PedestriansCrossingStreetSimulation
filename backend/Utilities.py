@@ -13,12 +13,18 @@ class Utilities:
     def plot_positions(params, status):
         ax = py.gca()
         for ped_i in params.all_peds_lr_sorted_by_x:
-            ax.plot(ped_i.x, ped_i.y, 'ro')
-            ax.add_patch( py.Circle((ped_i.x, ped_i.y), ped_i.radius_moving if status == "moving" else ped_i.radius_standing, color='r', fill=False, clip_on=False) )
-            
+            ax.plot(ped_i.x, ped_i.y, 'ro', clip_on=False)
+            if status == "standing":
+                ax.add_patch( py.Circle((ped_i.x, ped_i.y), ped_i.radius_standing, color='r', fill=False, clip_on=False) )
+            if status == "moving" and ped_i.status == "moving":
+                ax.add_patch( py.Circle((ped_i.x, ped_i.y), ped_i.radius_moving, color='r', fill=False, clip_on=False) )
+
         for ped_i in params.all_peds_rl_sorted_by_x:
-            ax.plot(ped_i.x, ped_i.y, 'cs')
-            ax.add_patch( py.Circle((ped_i.x, ped_i.y), ped_i.radius_moving if status == "moving" else ped_i.radius_standing, color='c', fill=False, clip_on=False) )
+            ax.plot(ped_i.x, ped_i.y, 'cs', clip_on=False)
+            if status == "standing":
+                ax.add_patch( py.Circle((ped_i.x, ped_i.y), ped_i.radius_standing, color='c', fill=False, clip_on=False) )
+            if status == "moving" and ped_i.status == "moving":
+                ax.add_patch( py.Circle((ped_i.x, ped_i.y), ped_i.radius_moving, color='c', fill=False, clip_on=False) )
             
         split_line_left_x = [params.waiting_area_length, params.waiting_area_length]
         split_line_left_y = [0, params.crosswalk_width]
@@ -34,6 +40,7 @@ class Utilities:
         py.plot(bottom_line_x, bottom_line_y, 'b-')
 
         py.xlim([-50, params.total_length + 50])
+        py.ylim([-500, params.crosswalk_width + 500])
 
         py.text(params.waiting_area_length - 200, params.crosswalk_width / 3, "Waiting\narea\non one\nside")
         py.text(params.waiting_area_length + params.crosswalk_length + 10, params.crosswalk_width / 3, "Waiting\narea\non another\nside")
