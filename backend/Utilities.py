@@ -58,16 +58,15 @@ class Utilities:
     @staticmethod
     def get_image(ped_direction, ped_type):
         if ped_direction == "left2right" and ped_type == "ped":
-            return OffsetImage(py.imread(fname="backend/img/ped_lr.png"))
+            return OffsetImage(py.imread(fname="img/ped_lr.png"))
 
     @staticmethod
     def plot_ped_image(ped_i, ax, zoom=1):
-        # if ped_direction == "left2right" and ped_type == "ped":
-        image = py.imread("backend/img/ped_lr.png")
+        image = py.imread("img/ped_lr.png")
         if ped_i.direction == "left2right" and ped_i.type == "ped":
-            image = py.imread("backend/img/ped_lr.png")
+            image = py.imread("img/ped_lr.png")
         elif ped_i.direction == "right2left" and ped_i.type == "ped":
-            image = py.imread("backend/img/ped_rl.png")
+            image = py.imread("img/ped_rl.png")
     
         im = OffsetImage(image, zoom=zoom)
         ab = AnnotationBbox(im, (ped_i.x, ped_i.y), xycoords='data', frameon=False, clip_on=False)
@@ -76,7 +75,7 @@ class Utilities:
 
     @staticmethod
     def plot_positions2(params, status):
-        figure(figsize=(12.6, 11), dpi=80)
+        figure(figsize=(12.6 * params.global_plot_zoom, 11 * params.global_plot_zoom), dpi=80)
         ax = py.gca()
 
         # draw ped

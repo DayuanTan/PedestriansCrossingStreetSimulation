@@ -101,6 +101,7 @@ class global_params:
         #
         # params needed only in gui 
         #
+        self.global_plot_zoom = 1
 
         # gui display, left section params input 
         self.crosswalk_width_entry = 0
