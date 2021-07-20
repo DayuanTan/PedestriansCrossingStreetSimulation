@@ -9,9 +9,9 @@ root.geometry("1600x800")
 
 # top greeting section
 greeting = tk.Label(root, text="Pedestrians Crossing Street Simulation by Dayuan Tan @UMBC")
-greeting.grid(row=0, columnspan=3, padx=600, pady=5)
+greeting.grid(row=0, columnspan=5, padx=600, pady=5)
 greeting = tk.Label(root, text="Parameters Setting")
-greeting.grid(row=1, columnspan=3, padx=600, pady=5)
+greeting.grid(row=1, columnspan=5, padx=600, pady=5)
 
 # declare global parameters
 params = global_params.global_params()

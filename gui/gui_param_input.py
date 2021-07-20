@@ -176,37 +176,44 @@ def param_input(root, params):
 
 
 
-    children_walking_velocity_min_label = tk.Label(right_frame, text="Amount of children from left to right:")
-    children_walking_velocity_min_label.place(relx=0.0, rely=0.76, anchor="w")
+    children_walking_velocity_min_label = tk.Label(right_frame, text="Children walking min velocity (cm/s):")
+    children_walking_velocity_min_label.place(relx=0.5, rely=0.2, anchor="w")
     params.children_walking_velocity_min_entry = tk.Entry(right_frame, width=3)
     params.children_walking_velocity_min_entry.insert(0, params.children_walking_velocity_min)
-    params.children_walking_velocity_min_entry.place(relx=0.88, rely=0.76, anchor="w")
+    params.children_walking_velocity_min_entry.place(relx=0.9, rely=0.2, anchor="w")
 
-    children_walking_velocity_max_label = tk.Label(right_frame, text="Amount of children from left to right:")
-    children_walking_velocity_max_label.place(relx=0.0, rely=0.76, anchor="w")
+    children_walking_velocity_max_label = tk.Label(right_frame, text="Children walking max velocity (cm/s):")
+    children_walking_velocity_max_label.place(relx=0.5, rely=0.27, anchor="w")
     params.children_walking_velocity_max_entry = tk.Entry(right_frame, width=3)
     params.children_walking_velocity_max_entry.insert(0, params.children_walking_velocity_max)
-    params.children_walking_velocity_max_entry.place(relx=0.88, rely=0.76, anchor="w")
+    params.children_walking_velocity_max_entry.place(relx=0.9, rely=0.27, anchor="w")
 
-    children_walking_velocity_mean_label = tk.Label(right_frame, text="Amount of children from left to right:")
-    children_walking_velocity_mean_label.place(relx=0.0, rely=0.76, anchor="w")
+    children_walking_velocity_mean_label = tk.Label(right_frame, text="Children walking mean velocity (cm/s):")
+    children_walking_velocity_mean_label.place(relx=0.5, rely=0.34, anchor="w")
     params.children_walking_velocity_mean_entry = tk.Entry(right_frame, width=3)
     params.children_walking_velocity_mean_entry.insert(0, params.children_walking_velocity_mean)
-    params.children_walking_velocity_mean_entry.place(relx=0.88, rely=0.76, anchor="w")
+    params.children_walking_velocity_mean_entry.place(relx=0.9, rely=0.34, anchor="w")
 
     
 
-    elder_amount_lr_label = tk.Label(right_frame, text="Amount of elder from left to right:")
-    elder_amount_lr_label.place(relx=0.0, rely=0.9, anchor="w")
-    params.elder_amount_lr_entry = tk.Entry(right_frame, width=3)
-    params.elder_amount_lr_entry.insert(0, params.elder_amount_lr)
-    params.elder_amount_lr_entry.place(relx=0.88, rely=0.9, anchor="w")
+    elder_walking_velocity_min_label = tk.Label(right_frame, text="Elder walking mean velocity (cm/s):")
+    elder_walking_velocity_min_label.place(relx=0.5, rely=0.41, anchor="w")
+    params.elder_walking_velocity_min_entry = tk.Entry(right_frame, width=3)
+    params.elder_walking_velocity_min_entry.insert(0, params.elder_walking_velocity_min)
+    params.elder_walking_velocity_min_entry.place(relx=0.9, rely=0.41, anchor="w")
 
-    elder_amount_rl_label = tk.Label(right_frame, text="Amount of elder from right to left:")
-    elder_amount_rl_label.place(relx=0.0, rely=0.97, anchor="w")
-    params.elder_amount_rl_entry = tk.Entry(right_frame, width=3)
-    params.elder_amount_rl_entry.insert(0, params.elder_amount_rl)
-    params.elder_amount_rl_entry.place(relx=0.88, rely=0.97, anchor="w")
+    elder_walking_velocity_max_label = tk.Label(right_frame, text="Elder walking mean velocity (cm/s):")
+    elder_walking_velocity_max_label.place(relx=0.5, rely=0.48, anchor="w")
+    params.elder_walking_velocity_max_entry = tk.Entry(right_frame, width=3)
+    params.elder_walking_velocity_max_entry.insert(0, params.elder_walking_velocity_max)
+    params.elder_walking_velocity_max_entry.place(relx=0.9, rely=0.48, anchor="w")
+
+    elder_walking_velocity_mean_label = tk.Label(right_frame, text="Elder walking mean velocity (cm/s):")
+    elder_walking_velocity_mean_label.place(relx=0.5, rely=0.55, anchor="w")
+    params.elder_walking_velocity_mean_entry = tk.Entry(right_frame, width=3)
+    params.elder_walking_velocity_mean_entry.insert(0, params.elder_walking_velocity_mean)
+    params.elder_walking_velocity_mean_entry.place(relx=0.9, rely=0.55, anchor="w")
+
 
 
 def param_save_button_func(root, params):

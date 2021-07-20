@@ -129,6 +129,9 @@ class global_params:
         self.children_walking_velocity_min_entry = 0
         self.children_walking_velocity_max_entry = 0
         self.children_walking_velocity_mean_entry = 0
+        self.elder_walking_velocity_min_entry = 0
+        self.elder_walking_velocity_max_entry = 0
+        self.elder_walking_velocity_mean_entry = 0
         
         self.frame = 0
 
