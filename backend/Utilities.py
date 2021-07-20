@@ -11,50 +11,6 @@ class Utilities:
             if ped_i.status != "finished":
                 return False            
         return True
-
-    @staticmethod
-    def plot_positions(params, status):
-        ax = py.gca()
-        # draw ped
-        for ped_i in params.all_peds_lr_sorted_by_x:
-            ax.plot(ped_i.x, ped_i.y, 'ro', clip_on=False)
-            if status == "standing":
-                ax.add_patch( py.Circle((ped_i.x, ped_i.y), ped_i.radius_standing, color='r', fill=False, clip_on=False) )
-            if status == "moving" and ped_i.status == "moving":
-                ax.add_patch( py.Circle((ped_i.x, ped_i.y), ped_i.radius_moving, color='r', fill=False, clip_on=False) )
-
-        for ped_i in params.all_peds_rl_sorted_by_x:
-            ax.plot(ped_i.x, ped_i.y, 'cs', clip_on=False)
-            if status == "standing":
-                ax.add_patch( py.Circle((ped_i.x, ped_i.y), ped_i.radius_standing, color='c', fill=False, clip_on=False) )
-            if status == "moving" and ped_i.status == "moving":
-                ax.add_patch( py.Circle((ped_i.x, ped_i.y), ped_i.radius_moving, color='c', fill=False, clip_on=False) )
-            
-        # draw crosswalk area
-        split_line_left_x = [params.waiting_area_length, params.waiting_area_length]
-        split_line_left_y = [0, params.crosswalk_width]
-        split_line_right_x = [params.waiting_area_length + params.crosswalk_length, params.waiting_area_length + params.crosswalk_length]
-        split_line_right_y = [0, params.crosswalk_width]
-        top_line_x = [params.waiting_area_length, params.waiting_area_length + params.crosswalk_length]
-        top_line_y = [params.crosswalk_width, params.crosswalk_width]
-        bottom_line_x = [params.waiting_area_length, params.waiting_area_length + params.crosswalk_length]
-        bottom_line_y = [0, 0]
-        py.plot(split_line_left_x, split_line_left_y, 'b-')
-        py.plot(split_line_right_x, split_line_right_y, 'b-')
-        py.plot(top_line_x, top_line_y, 'b-')
-        py.plot(bottom_line_x, bottom_line_y, 'b-')
-
-        py.xlim([-250, params.total_length + 250])
-        py.ylim([-600, params.crosswalk_width + 600])
-
-        py.text(params.waiting_area_length - 200, params.crosswalk_width / 3, "Waiting\narea\non one\nside")
-        py.text(params.waiting_area_length + params.crosswalk_length + 10, params.crosswalk_width / 3, "Waiting\narea\non another\nside")
-        py.text(params.waiting_area_length + params.crosswalk_length/3, params.crosswalk_width / 2, "Crosswalk area")
-        py.text(params.waiting_area_length + params.crosswalk_length/3, params.crosswalk_width + 100, "Outside crosswalk area")
-        py.text(params.waiting_area_length + params.crosswalk_length/3, -100, "Outside crosswalk area")
-
-        py.show()
-
    
     @staticmethod
     def plot_ped_image(ped_i, ax):
@@ -98,7 +54,7 @@ class Utilities:
         ax.autoscale()
 
     @staticmethod
-    def plot_positions2(params, status):
+    def plot_positions(params, status):
         figure(figsize=(12.6 * params.global_plot_zoom, 11 * params.global_plot_zoom), dpi=80)
         ax = py.gca()
 
