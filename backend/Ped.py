@@ -121,8 +121,12 @@ class Ped:
             if "debug" in params.log_keywords: 
                 print("sqrt_abs: ", sqrt_abs, " self.y: ", self.y)
                 print("newy1: ", newy1, " newy2: ", newy2)
-            all_newpositions.append([newx, newy1])
-            all_newpositions.append([newx, newy2])
+            if self.y > params.crosswalk_width / 2:
+                all_newpositions.append([newx, newy2])
+                all_newpositions.append([newx, newy1])
+            else:
+                all_newpositions.append([newx, newy1])
+                all_newpositions.append([newx, newy2])
         return all_newpositions
 
 
