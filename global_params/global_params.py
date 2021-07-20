@@ -41,12 +41,12 @@ class global_params:
         self.ped_amount_lr = 20
         self.ped_amount_rl = 20
         self.wheelchair_amount_lr = 1
-        self.wheelchair_amount_rl = 0
-        self.crutches_user_amount_lr = 0
+        self.wheelchair_amount_rl = 1
+        self.crutches_user_amount_lr = 1
         self.crutches_user_amount_rl = 1
         self.children_amount_lr = 1
-        self.children_amount_rl = 0
-        self.elder_amount_lr = 0
+        self.children_amount_rl = 1
+        self.elder_amount_lr = 1
         self.elder_amount_rl = 1
 
         # simulation speed with default value

@@ -55,11 +55,7 @@ class Utilities:
 
         py.show()
 
-    @staticmethod
-    def get_image(ped_direction, ped_type):
-        if ped_direction == "left2right" and ped_type == "ped":
-            return OffsetImage(py.imread(fname="img/ped_lr.png"))
-
+   
     @staticmethod
     def plot_ped_image(ped_i, ax, zoom=1):
         image = py.imread("img/ped_lr.png")
@@ -67,6 +63,11 @@ class Utilities:
             image = py.imread("img/ped_lr.png")
         elif ped_i.direction == "right2left" and ped_i.type == "ped":
             image = py.imread("img/ped_rl.png")
+        elif ped_i.direction == "left2right" and ped_i.type == "wheelchair":
+            image = py.imread("img/wheelchair_lr.png")
+        elif ped_i.direction == "right2left" and ped_i.type == "wheelchair":
+            image = py.imread("img/wheelchair_rl.png")
+        
     
         im = OffsetImage(image, zoom=zoom)
         ab = AnnotationBbox(im, (ped_i.x, ped_i.y), xycoords='data', frameon=False, clip_on=False)
