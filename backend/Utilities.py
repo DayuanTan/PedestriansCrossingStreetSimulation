@@ -44,8 +44,8 @@ class Utilities:
         py.plot(top_line_x, top_line_y, 'b-')
         py.plot(bottom_line_x, bottom_line_y, 'b-')
 
-        py.xlim([-50, params.total_length + 50])
-        py.ylim([-500, params.crosswalk_width + 500])
+        py.xlim([-250, params.total_length + 250])
+        py.ylim([-600, params.crosswalk_width + 600])
 
         py.text(params.waiting_area_length - 200, params.crosswalk_width / 3, "Waiting\narea\non one\nside")
         py.text(params.waiting_area_length + params.crosswalk_length + 10, params.crosswalk_width / 3, "Waiting\narea\non another\nside")
@@ -57,16 +57,39 @@ class Utilities:
 
    
     @staticmethod
-    def plot_ped_image(ped_i, ax, zoom=1):
-        image = py.imread("img/ped_lr.png")
+    def plot_ped_image(ped_i, ax):
+        image = py.imread("img/ped_lr_big.png")
+        zoom = 0.1
         if ped_i.direction == "left2right" and ped_i.type == "ped":
-            image = py.imread("img/ped_lr.png")
+            image = py.imread("img/ped_lr_big.png")
+            zoom = 0.07 if ped_i.status == "moving" else 0.04
         elif ped_i.direction == "right2left" and ped_i.type == "ped":
-            image = py.imread("img/ped_rl.png")
+            image = py.imread("img/ped_rl_big.png")
+            zoom = 0.07 if ped_i.status == "moving" else 0.04
         elif ped_i.direction == "left2right" and ped_i.type == "wheelchair":
-            image = py.imread("img/wheelchair_lr.png")
+            image = py.imread("img/wheelchair_lr_big.png")
+            zoom = 0.1
         elif ped_i.direction == "right2left" and ped_i.type == "wheelchair":
-            image = py.imread("img/wheelchair_rl.png")
+            image = py.imread("img/wheelchair_rl_big.png")
+            zoom = 0.1
+        elif ped_i.direction == "left2right" and ped_i.type == "crutches_user":
+            image = py.imread("img/crutches_user_lr_big.png")
+            zoom = 0.11 if ped_i.status == "moving" else 0.05
+        elif ped_i.direction == "right2left" and ped_i.type == "crutches_user":
+            image = py.imread("img/crutches_user_rl_big.png")
+            zoom = 0.11 if ped_i.status == "moving" else 0.05
+        elif ped_i.direction == "left2right" and ped_i.type == "child":
+            image = py.imread("img/child_lr.png")
+            zoom = 0.06 if ped_i.status == "moving" else 0.04
+        elif ped_i.direction == "right2left" and ped_i.type == "child":
+            image = py.imread("img/child_rl.png")
+            zoom = 0.06 if ped_i.status == "moving" else 0.04
+        elif ped_i.direction == "left2right" and ped_i.type == "elder":
+            image = py.imread("img/elder_lr.png")
+            zoom = 0.07 if ped_i.status == "moving" else 0.04
+        elif ped_i.direction == "right2left" and ped_i.type == "elder":
+            image = py.imread("img/elder_rl.png")
+            zoom = 0.07 if ped_i.status == "moving" else 0.04
         
     
         im = OffsetImage(image, zoom=zoom)
@@ -83,7 +106,7 @@ class Utilities:
         for ped_i in params.all_peds_lr_sorted_by_x:
             # draw dot
             # ax.plot(ped_i.x, ped_i.y, 'ro', clip_on=False)
-            Utilities.plot_ped_image(ped_i, ax, zoom=0.4)
+            Utilities.plot_ped_image(ped_i, ax)
             # add circle
             if status == "standing":
                 ax.add_patch( py.Circle((ped_i.x, ped_i.y), ped_i.radius_standing, color='b', fill=False, clip_on=False) )
@@ -93,7 +116,7 @@ class Utilities:
         for ped_i in params.all_peds_rl_sorted_by_x:
             # draw dot
             # ax.plot(ped_i.x, ped_i.y, 'cs', clip_on=False)
-            Utilities.plot_ped_image(ped_i, ax, zoom=0.4)
+            Utilities.plot_ped_image(ped_i, ax)
             # add circle
             if status == "standing":
                 ax.add_patch( py.Circle((ped_i.x, ped_i.y), ped_i.radius_standing, color='g', fill=False, clip_on=False) )
