@@ -223,6 +223,7 @@ def param_save_button_func(root, params):
 
 
 def param_save_button_logic(root, params):
+    # basic
     params.crosswalk_width = int(params.crosswalk_width_entry.get())
     params.crosswalk_length = int(params.crosswalk_length_entry.get())
     params.ped_amount_lr = int(params.ped_amount_lr_entry.get())
@@ -235,21 +236,56 @@ def param_save_button_logic(root, params):
     params.children_amount_rl = int(params.children_amount_rl_entry.get())
     params.elder_amount_lr = int(params.elder_amount_lr_entry.get())
     params.elder_amount_rl = int(params.elder_amount_rl_entry.get())
+    # adv
+    params.step_time = int(params.step_time_entry.get())
+    params.waiting_area_length = int(params.waiting_area_length_entry.get())
+    params.ped_walking_velocity_min_entry = int(params.ped_walking_velocity_min_entry.get())
+    params.ped_walking_velocity_max_entry = int(params.ped_walking_velocity_max_entry.get())
+    params.ped_walking_velocity_mean_entry = int(params.ped_walking_velocity_mean_entry.get())
+    params.wheelchair_rolling_velocity_min = int(params.wheelchair_rolling_velocity_min_entry.get())
+    params.wheelchair_rolling_velocity_max = int(params.wheelchair_rolling_velocity_max_entry.get())
+    params.wheelchair_rolling_velocity_mean = int(params.wheelchair_rolling_velocity_mean_entry.get())
+    params.crutches_user_walking_velocity_min = int(params.crutches_user_walking_velocity_min_entry.get())
+    params.crutches_user_walking_velocity_max = int(params.crutches_user_walking_velocity_max_entry.get())
+    params.crutches_user_walking_velocity_mean = int(params.crutches_user_walking_velocity_mean_entry.get())
+    params.children_walking_velocity_min = int(params.children_walking_velocity_min_entry.get())
+    params.children_walking_velocity_max = int(params.children_walking_velocity_max_entry.get())
+    params.children_walking_velocity_mean = int(params.children_walking_velocity_mean_entry.get())
+    params.elder_walking_velocity_min = int(params.elder_walking_velocity_min_entry.get())
+    params.elder_walking_velocity_max = int(params.elder_walking_velocity_max_entry.get())
+    params.elder_walking_velocity_mean = int(params.elder_walking_velocity_mean_entry.get())
+
+
 
     if params.crosswalk_width <= 0 or params.crosswalk_length <= 0 or params.ped_amount_lr <= 0 or params.ped_amount_rl <= 0 \
             or params.wheelchair_amount_lr < 0 or params.wheelchair_amount_rl < 0 or params.crutches_user_amount_lr < 0 or params.crutches_user_amount_rl < 0 \
-            or params.children_amount_lr < 0 or params.children_amount_rl < 0 or params.elder_amount_lr < 0 or params.elder_amount_rl < 0 :
+            or params.children_amount_lr < 0 or params.children_amount_rl < 0 or params.elder_amount_lr < 0 or params.elder_amount_rl < 0 \
+            or params.step_time <= 0 or params.waiting_area_length <=0 \
+            or params.ped_walking_velocity_min <= 0 or params.ped_walking_velocity_max <= 0 or params.ped_walking_velocity_mean <= 0 \
+            or params.wheelchair_rolling_velocity_min <= 0 or params.wheelchair_rolling_velocity_max <= 0 or params.wheelchair_rolling_velocity_mean <= 0 \
+            or params.crutches_user_walking_velocity_min <= 0 or params.crutches_user_walking_velocity_max <= 0 or params.crutches_user_walking_velocity_mean <= 0 \
+            or params.children_walking_velocity_min <= 0 or params.children_walking_velocity_max <= 0 or params.children_walking_velocity_mean <= 0 \
+            or params.elder_walking_velocity_min <= 0 or params.elder_walking_velocity_max <= 0 or params.elder_walking_velocity_mean <= 0:
         messagebox.showinfo(title="Alert", message="Invalid arguments!")
         param_save_button_func(root, params)
 
     
-    messagebox.showinfo(title="Parameters applied", message="Parameters applied! \nCrosswalk Width: " + str(params.crosswalk_width) 
+    messagebox.showinfo(title="Parameters applied", message="Parameters applied! \nBasic parameters:" 
+        + "\nCrosswalk Width: " + str(params.crosswalk_width) 
         + "\nCrosswalk Length: " + str(params.crosswalk_length) 
         + "\nped_amount_lr: " + str(params.ped_amount_lr) + "\nped_amount_rl: " + str(params.ped_amount_rl)
         + "\nwheelchair_amount_lr: " + str(params.wheelchair_amount_lr) + "\nwheelchair_amount_rl: " + str(params.wheelchair_amount_rl)
         + "\ncrutches_user_amount_lr: " + str(params.crutches_user_amount_lr) + "\ncrutches_user_amount_rl: " + str(params.crutches_user_amount_rl)
         + "\nchildren_amount_lr: " + str(params.children_amount_lr) + "\nchildren_amount_rl: " + str(params.children_amount_rl)
         + "\nelder_amount_lr: " + str(params.elder_amount_lr) + "\nelder_amount_lr: " + str(params.elder_amount_lr)
+        + "\n\n\nAdvanced parameters:"
+        + "\nstep_time: " + str(params.step_time)
+        + "\nwaiting_area_length: " + str(params.waiting_area_length)
+        + "\nped_walking_velocity: min: " + str(params.ped_walking_velocity_min) + " max: " + str(params.ped_walking_velocity_max) + " mean: " + str(params.ped_walking_velocity_mean)
+        + "\nwheelchair_rolling_velocity: min: " + str(params.wheelchair_rolling_velocity_min) + " max: " + str(params.wheelchair_rolling_velocity_max) + " mean: " + str(params.wheelchair_rolling_velocity_mean)
+        + "\ncrutches_user_walking_velocity: min: " + str(params.crutches_user_walking_velocity_min) + " max: " + str(params.crutches_user_walking_velocity_max) + " mean: " + str(params.crutches_user_walking_velocity_mean)
+        + "\nchildren_walking_velocity: min: " + str(params.children_walking_velocity_min) + " max: " + str(params.children_walking_velocity_max) + " mean: " + str(params.children_walking_velocity_mean)
+        + "\nelder_walking_velocity: min: " + str(params.elder_walking_velocity_min) + " max: " + str(params.elder_walking_velocity_max) + " mean: " + str(params.elder_walking_velocity_mean)
         )
 
 
