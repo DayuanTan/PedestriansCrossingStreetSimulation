@@ -9,8 +9,8 @@ class global_params:
         # If include "debug", it is recommended to run like this "python3 backend_example.py > log.txt" since the log would be huge.
         # 
         # self.log_keywords = ["core", "debug", "plot"]
-        self.log_keywords = ["core", "plot"]
-        # self.log_keywords = ["core"]
+        # self.log_keywords = ["core", "plot"]
+        self.log_keywords = ["core"]
         # self.log_keywords = []
 
         #
@@ -19,6 +19,7 @@ class global_params:
 
         self.step_time = 3 # seconds; each simulation step reflects how long in read world
         self.step_counter = 0 # how many simulation steps it use
+        self.total_needed_time = 0
 
         # simulation area with default value
         self.crosswalk_width = 300 #cm
