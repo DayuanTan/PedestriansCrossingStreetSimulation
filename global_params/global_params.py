@@ -17,7 +17,7 @@ class global_params:
         # params needed in both gui and backend
         #
 
-        self.step_time = 3 # seconds; each simulation step reflects how long in read world
+        self.step_time = 1 # seconds; each simulation step reflects how long in read world
         self.step_counter = 0 # how many simulation steps it use
         self.total_needed_time = 0
 
@@ -113,6 +113,22 @@ class global_params:
         self.wheelchair_amount_rl_entry = 0
         self.children_amount_lr_entry = 0
         self.children_amount_rl_entry = 0
+
+        # gui display, avd params input 
+        self.step_time_entry = 0
+        self.waiting_area_length_entry = 0
+        self.ped_walking_velocity_min_entry = 0
+        self.ped_walking_velocity_max_entry = 0
+        self.ped_walking_velocity_mean_entry = 0
+        self.wheelchair_rolling_velocity_min_entry = 0
+        self.wheelchair_rolling_velocity_max_entry = 0
+        self.wheelchair_rolling_velocity_mean_entry = 0
+        self.crutches_user_walking_velocity_min_entry = 0
+        self.crutches_user_walking_velocity_max_entry = 0
+        self.crutches_user_walking_velocity_mean_entry = 0
+        self.children_walking_velocity_min_entry = 0
+        self.children_walking_velocity_max_entry = 0
+        self.children_walking_velocity_mean_entry = 0
         
         self.frame = 0
 

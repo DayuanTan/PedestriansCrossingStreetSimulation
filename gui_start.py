@@ -1,6 +1,6 @@
 import tkinter as tk
 import global_params.global_params as global_params
-import gui.gui_left_section_param_input as l
+import gui.gui_param_input as l
 import gui.gui_crossing_window as cross
 
 root = tk.Tk()
@@ -16,8 +16,8 @@ greeting.grid(row=1, columnspan=3, padx=600, pady=5)
 # declare global parameters
 params = global_params.global_params()
 
-# left param input section
-l.left_section_param_input(root, params)
+# param input section
+l.param_input(root, params)
 
 # buttons
 save_button = tk.Button(params.frame, text="Save parameters", command = lambda: l.param_save_button_func(root, params) )
