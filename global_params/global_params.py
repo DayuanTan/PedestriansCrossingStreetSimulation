@@ -51,30 +51,30 @@ class global_params:
         self.elder_amount_rl = 1
 
         # simulation speed with default value
-        self.ped_walking_velocity_min = 110 #cm/s
-        self.ped_walking_velocity_max = 140 #cm/s
-        self.ped_walking_velocity_mean = 125 #cm/s
-        self.ped_walking_velocity_sigma = (self.ped_walking_velocity_max - self.ped_walking_velocity_mean) / 3  # standard deviation # max = mean + 3*sigma => sigma = (max - mean )/3
+        self.ped_walking_speed_min = 110 #cm/s
+        self.ped_walking_speed_max = 140 #cm/s
+        self.ped_walking_speed_mean = 125 #cm/s
+        self.ped_walking_speed_sigma = (self.ped_walking_speed_max - self.ped_walking_speed_mean) / 3  # standard deviation # max = mean + 3*sigma => sigma = (max - mean )/3
  
-        self.wheelchair_rolling_velocity_min = 70 #cm/s
-        self.wheelchair_rolling_velocity_max = 100 #cm/s
-        self.wheelchair_rolling_velocity_mean = 85 #cm/s
-        self.wheelchair_rolling_velocity_sigma = (self.wheelchair_rolling_velocity_max - self.wheelchair_rolling_velocity_mean) / 3 # max = mean + 3*sigma => sigma = (max - mean )/3
+        self.wheelchair_rolling_speed_min = 70 #cm/s
+        self.wheelchair_rolling_speed_max = 100 #cm/s
+        self.wheelchair_rolling_speed_mean = 85 #cm/s
+        self.wheelchair_rolling_speed_sigma = (self.wheelchair_rolling_speed_max - self.wheelchair_rolling_speed_mean) / 3 # max = mean + 3*sigma => sigma = (max - mean )/3
 
-        self.crutches_user_walking_velocity_min = 50 #cm/s
-        self.crutches_user_walking_velocity_max = 80 #cm/s
-        self.crutches_user_walking_velocity_mean = 75 #cm/s
-        self.crutches_user_walking_velocity_sigma = (self.crutches_user_walking_velocity_max - self.crutches_user_walking_velocity_mean) / 3 # max = mean + 3*sigma => sigma = (max - mean )/3
+        self.crutches_user_walking_speed_min = 50 #cm/s
+        self.crutches_user_walking_speed_max = 80 #cm/s
+        self.crutches_user_walking_speed_mean = 75 #cm/s
+        self.crutches_user_walking_speed_sigma = (self.crutches_user_walking_speed_max - self.crutches_user_walking_speed_mean) / 3 # max = mean + 3*sigma => sigma = (max - mean )/3
 
-        self.children_walking_velocity_min = 50 #cm/s
-        self.children_walking_velocity_max = 80 #cm/s
-        self.children_walking_velocity_mean = 75 #cm/s
-        self.children_walking_velocity_sigma = (self.children_walking_velocity_max - self.children_walking_velocity_mean) / 3 # max = mean + 3*sigma => sigma = (max - mean )/3
+        self.children_walking_speed_min = 50 #cm/s
+        self.children_walking_speed_max = 80 #cm/s
+        self.children_walking_speed_mean = 75 #cm/s
+        self.children_walking_speed_sigma = (self.children_walking_speed_max - self.children_walking_speed_mean) / 3 # max = mean + 3*sigma => sigma = (max - mean )/3
 
-        self.elder_walking_velocity_min = 50 #cm/s
-        self.elder_walking_velocity_max = 80 #cm/s
-        self.elder_walking_velocity_mean = 75 #cm/s
-        self.elder_walking_velocity_sigma = (self.elder_walking_velocity_max - self.elder_walking_velocity_mean) / 3 # max = mean + 3*sigma => sigma = (max - mean )/3
+        self.elder_walking_speed_min = 50 #cm/s
+        self.elder_walking_speed_max = 80 #cm/s
+        self.elder_walking_speed_mean = 75 #cm/s
+        self.elder_walking_speed_sigma = (self.elder_walking_speed_max - self.elder_walking_speed_mean) / 3 # max = mean + 3*sigma => sigma = (max - mean )/3
 
         # simulation occupied space with default value
         self.radius_of_space_occupied_when_standing = {
@@ -117,21 +117,21 @@ class global_params:
         # gui display, avd params input 
         self.step_time_entry = 0
         self.waiting_area_length_entry = 0
-        self.ped_walking_velocity_min_entry = 0
-        self.ped_walking_velocity_max_entry = 0
-        self.ped_walking_velocity_mean_entry = 0
-        self.wheelchair_rolling_velocity_min_entry = 0
-        self.wheelchair_rolling_velocity_max_entry = 0
-        self.wheelchair_rolling_velocity_mean_entry = 0
-        self.crutches_user_walking_velocity_min_entry = 0
-        self.crutches_user_walking_velocity_max_entry = 0
-        self.crutches_user_walking_velocity_mean_entry = 0
-        self.children_walking_velocity_min_entry = 0
-        self.children_walking_velocity_max_entry = 0
-        self.children_walking_velocity_mean_entry = 0
-        self.elder_walking_velocity_min_entry = 0
-        self.elder_walking_velocity_max_entry = 0
-        self.elder_walking_velocity_mean_entry = 0
+        self.ped_walking_speed_min_entry = 0
+        self.ped_walking_speed_max_entry = 0
+        self.ped_walking_speed_mean_entry = 0
+        self.wheelchair_rolling_speed_min_entry = 0
+        self.wheelchair_rolling_speed_max_entry = 0
+        self.wheelchair_rolling_speed_mean_entry = 0
+        self.crutches_user_walking_speed_min_entry = 0
+        self.crutches_user_walking_speed_max_entry = 0
+        self.crutches_user_walking_speed_mean_entry = 0
+        self.children_walking_speed_min_entry = 0
+        self.children_walking_speed_max_entry = 0
+        self.children_walking_speed_mean_entry = 0
+        self.elder_walking_speed_min_entry = 0
+        self.elder_walking_speed_max_entry = 0
+        self.elder_walking_speed_mean_entry = 0
         
         self.frame = 0
 

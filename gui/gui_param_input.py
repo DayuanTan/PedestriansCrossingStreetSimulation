@@ -116,103 +116,103 @@ def param_input(root, params):
     params.waiting_area_length_entry.insert(0, params.waiting_area_length)
     params.waiting_area_length_entry.place(relx=0.4, rely=0.27, anchor="w")
 
-    ped_walking_velocity_min_label = tk.Label(right_frame, text="Pedestrians walking min velocity (cm/s):")
-    ped_walking_velocity_min_label.place(relx=0.0, rely=0.34, anchor="w")
-    params.ped_walking_velocity_min_entry = tk.Entry(right_frame, width=3)
-    params.ped_walking_velocity_min_entry.insert(0, params.ped_walking_velocity_min)
-    params.ped_walking_velocity_min_entry.place(relx=0.4, rely=0.34, anchor="w")
+    ped_walking_speed_min_label = tk.Label(right_frame, text="Pedestrians walking min speed (cm/s):")
+    ped_walking_speed_min_label.place(relx=0.0, rely=0.34, anchor="w")
+    params.ped_walking_speed_min_entry = tk.Entry(right_frame, width=3)
+    params.ped_walking_speed_min_entry.insert(0, params.ped_walking_speed_min)
+    params.ped_walking_speed_min_entry.place(relx=0.4, rely=0.34, anchor="w")
 
-    ped_walking_velocity_max_label = tk.Label(right_frame, text="Pedestrians walking max velocity (cm/s):")
-    ped_walking_velocity_max_label.place(relx=0.0, rely=0.41, anchor="w")
-    params.ped_walking_velocity_max_entry = tk.Entry(right_frame, width=3)
-    params.ped_walking_velocity_max_entry.insert(0, params.ped_walking_velocity_max)
-    params.ped_walking_velocity_max_entry.place(relx=0.4, rely=0.41, anchor="w")
+    ped_walking_speed_max_label = tk.Label(right_frame, text="Pedestrians walking max speed (cm/s):")
+    ped_walking_speed_max_label.place(relx=0.0, rely=0.41, anchor="w")
+    params.ped_walking_speed_max_entry = tk.Entry(right_frame, width=3)
+    params.ped_walking_speed_max_entry.insert(0, params.ped_walking_speed_max)
+    params.ped_walking_speed_max_entry.place(relx=0.4, rely=0.41, anchor="w")
 
-    ped_walking_velocity_mean_label = tk.Label(right_frame, text="Pedestrians walking mean velocity (cm/s):")
-    ped_walking_velocity_mean_label.place(relx=0.0, rely=0.48, anchor="w")
-    params.ped_walking_velocity_mean_entry = tk.Entry(right_frame, width=3)
-    params.ped_walking_velocity_mean_entry.insert(0, params.ped_walking_velocity_mean)
-    params.ped_walking_velocity_mean_entry.place(relx=0.4, rely=0.48, anchor="w")
-
-
-
-    wheelchair_rolling_velocity_min_label = tk.Label(right_frame, text="Wheelchair rolling min velocity (cm/s):")
-    wheelchair_rolling_velocity_min_label.place(relx=0.0, rely=0.55, anchor="w")
-    params.wheelchair_rolling_velocity_min_entry = tk.Entry(right_frame, width=3)
-    params.wheelchair_rolling_velocity_min_entry.insert(0, params.wheelchair_rolling_velocity_min)
-    params.wheelchair_rolling_velocity_min_entry.place(relx=0.4, rely=0.55, anchor="w")
-
-    wheelchair_rolling_velocity_max_label = tk.Label(right_frame, text="Wheelchair rolling max velocity (cm/s):")
-    wheelchair_rolling_velocity_max_label.place(relx=0.0, rely=0.62, anchor="w")
-    params.wheelchair_rolling_velocity_max_entry = tk.Entry(right_frame, width=3)
-    params.wheelchair_rolling_velocity_max_entry.insert(0, params.wheelchair_rolling_velocity_max)
-    params.wheelchair_rolling_velocity_max_entry.place(relx=0.4, rely=0.62, anchor="w")
-
-    wheelchair_rolling_velocity_mean_label = tk.Label(right_frame, text="Wheelchair rolling mean velocity (cm/s):")
-    wheelchair_rolling_velocity_mean_label.place(relx=0.0, rely=0.69, anchor="w")
-    params.wheelchair_rolling_velocity_mean_entry = tk.Entry(right_frame, width=3)
-    params.wheelchair_rolling_velocity_mean_entry.insert(0, params.wheelchair_rolling_velocity_mean)
-    params.wheelchair_rolling_velocity_mean_entry.place(relx=0.4, rely=0.69, anchor="w")
+    ped_walking_speed_mean_label = tk.Label(right_frame, text="Pedestrians walking mean speed (cm/s):")
+    ped_walking_speed_mean_label.place(relx=0.0, rely=0.48, anchor="w")
+    params.ped_walking_speed_mean_entry = tk.Entry(right_frame, width=3)
+    params.ped_walking_speed_mean_entry.insert(0, params.ped_walking_speed_mean)
+    params.ped_walking_speed_mean_entry.place(relx=0.4, rely=0.48, anchor="w")
 
 
 
-    crutches_user_walking_velocity_min_label = tk.Label(right_frame, text="Crutchesuser walking min velocity (cm/s):")
-    crutches_user_walking_velocity_min_label.place(relx=0.0, rely=0.76, anchor="w")
-    params.crutches_user_walking_velocity_min_entry = tk.Entry(right_frame, width=3)
-    params.crutches_user_walking_velocity_min_entry.insert(0, params.crutches_user_walking_velocity_min)
-    params.crutches_user_walking_velocity_min_entry.place(relx=0.4, rely=0.76, anchor="w")
+    wheelchair_rolling_speed_min_label = tk.Label(right_frame, text="Wheelchair rolling min speed (cm/s):")
+    wheelchair_rolling_speed_min_label.place(relx=0.0, rely=0.55, anchor="w")
+    params.wheelchair_rolling_speed_min_entry = tk.Entry(right_frame, width=3)
+    params.wheelchair_rolling_speed_min_entry.insert(0, params.wheelchair_rolling_speed_min)
+    params.wheelchair_rolling_speed_min_entry.place(relx=0.4, rely=0.55, anchor="w")
 
-    crutches_user_walking_velocity_max_label = tk.Label(right_frame, text="Crutchesuser walking max velocity (cm/s):")
-    crutches_user_walking_velocity_max_label.place(relx=0.0, rely=0.83, anchor="w")
-    params.crutches_user_walking_velocity_max_entry = tk.Entry(right_frame, width=3)
-    params.crutches_user_walking_velocity_max_entry.insert(0, params.crutches_user_walking_velocity_max)
-    params.crutches_user_walking_velocity_max_entry.place(relx=0.4, rely=0.83, anchor="w")
+    wheelchair_rolling_speed_max_label = tk.Label(right_frame, text="Wheelchair rolling max speed (cm/s):")
+    wheelchair_rolling_speed_max_label.place(relx=0.0, rely=0.62, anchor="w")
+    params.wheelchair_rolling_speed_max_entry = tk.Entry(right_frame, width=3)
+    params.wheelchair_rolling_speed_max_entry.insert(0, params.wheelchair_rolling_speed_max)
+    params.wheelchair_rolling_speed_max_entry.place(relx=0.4, rely=0.62, anchor="w")
 
-    crutches_user_walking_velocity_mean_label = tk.Label(right_frame, text="Crutchesuser walking mean velocity (cm/s):")
-    crutches_user_walking_velocity_mean_label.place(relx=0.0, rely=0.9, anchor="w")
-    params.crutches_user_walking_velocity_mean_entry = tk.Entry(right_frame, width=3)
-    params.crutches_user_walking_velocity_mean_entry.insert(0, params.crutches_user_walking_velocity_mean)
-    params.crutches_user_walking_velocity_mean_entry.place(relx=0.4, rely=0.9, anchor="w")
+    wheelchair_rolling_speed_mean_label = tk.Label(right_frame, text="Wheelchair rolling mean speed (cm/s):")
+    wheelchair_rolling_speed_mean_label.place(relx=0.0, rely=0.69, anchor="w")
+    params.wheelchair_rolling_speed_mean_entry = tk.Entry(right_frame, width=3)
+    params.wheelchair_rolling_speed_mean_entry.insert(0, params.wheelchair_rolling_speed_mean)
+    params.wheelchair_rolling_speed_mean_entry.place(relx=0.4, rely=0.69, anchor="w")
 
 
 
-    children_walking_velocity_min_label = tk.Label(right_frame, text="Children walking min velocity (cm/s):")
-    children_walking_velocity_min_label.place(relx=0.5, rely=0.2, anchor="w")
-    params.children_walking_velocity_min_entry = tk.Entry(right_frame, width=3)
-    params.children_walking_velocity_min_entry.insert(0, params.children_walking_velocity_min)
-    params.children_walking_velocity_min_entry.place(relx=0.9, rely=0.2, anchor="w")
+    crutches_user_walking_speed_min_label = tk.Label(right_frame, text="Crutchesuser walking min speed (cm/s):")
+    crutches_user_walking_speed_min_label.place(relx=0.0, rely=0.76, anchor="w")
+    params.crutches_user_walking_speed_min_entry = tk.Entry(right_frame, width=3)
+    params.crutches_user_walking_speed_min_entry.insert(0, params.crutches_user_walking_speed_min)
+    params.crutches_user_walking_speed_min_entry.place(relx=0.4, rely=0.76, anchor="w")
 
-    children_walking_velocity_max_label = tk.Label(right_frame, text="Children walking max velocity (cm/s):")
-    children_walking_velocity_max_label.place(relx=0.5, rely=0.27, anchor="w")
-    params.children_walking_velocity_max_entry = tk.Entry(right_frame, width=3)
-    params.children_walking_velocity_max_entry.insert(0, params.children_walking_velocity_max)
-    params.children_walking_velocity_max_entry.place(relx=0.9, rely=0.27, anchor="w")
+    crutches_user_walking_speed_max_label = tk.Label(right_frame, text="Crutchesuser walking max speed (cm/s):")
+    crutches_user_walking_speed_max_label.place(relx=0.0, rely=0.83, anchor="w")
+    params.crutches_user_walking_speed_max_entry = tk.Entry(right_frame, width=3)
+    params.crutches_user_walking_speed_max_entry.insert(0, params.crutches_user_walking_speed_max)
+    params.crutches_user_walking_speed_max_entry.place(relx=0.4, rely=0.83, anchor="w")
 
-    children_walking_velocity_mean_label = tk.Label(right_frame, text="Children walking mean velocity (cm/s):")
-    children_walking_velocity_mean_label.place(relx=0.5, rely=0.34, anchor="w")
-    params.children_walking_velocity_mean_entry = tk.Entry(right_frame, width=3)
-    params.children_walking_velocity_mean_entry.insert(0, params.children_walking_velocity_mean)
-    params.children_walking_velocity_mean_entry.place(relx=0.9, rely=0.34, anchor="w")
+    crutches_user_walking_speed_mean_label = tk.Label(right_frame, text="Crutchesuser walking mean speed (cm/s):")
+    crutches_user_walking_speed_mean_label.place(relx=0.0, rely=0.9, anchor="w")
+    params.crutches_user_walking_speed_mean_entry = tk.Entry(right_frame, width=3)
+    params.crutches_user_walking_speed_mean_entry.insert(0, params.crutches_user_walking_speed_mean)
+    params.crutches_user_walking_speed_mean_entry.place(relx=0.4, rely=0.9, anchor="w")
+
+
+
+    children_walking_speed_min_label = tk.Label(right_frame, text="Children walking min speed (cm/s):")
+    children_walking_speed_min_label.place(relx=0.5, rely=0.2, anchor="w")
+    params.children_walking_speed_min_entry = tk.Entry(right_frame, width=3)
+    params.children_walking_speed_min_entry.insert(0, params.children_walking_speed_min)
+    params.children_walking_speed_min_entry.place(relx=0.9, rely=0.2, anchor="w")
+
+    children_walking_speed_max_label = tk.Label(right_frame, text="Children walking max speed (cm/s):")
+    children_walking_speed_max_label.place(relx=0.5, rely=0.27, anchor="w")
+    params.children_walking_speed_max_entry = tk.Entry(right_frame, width=3)
+    params.children_walking_speed_max_entry.insert(0, params.children_walking_speed_max)
+    params.children_walking_speed_max_entry.place(relx=0.9, rely=0.27, anchor="w")
+
+    children_walking_speed_mean_label = tk.Label(right_frame, text="Children walking mean speed (cm/s):")
+    children_walking_speed_mean_label.place(relx=0.5, rely=0.34, anchor="w")
+    params.children_walking_speed_mean_entry = tk.Entry(right_frame, width=3)
+    params.children_walking_speed_mean_entry.insert(0, params.children_walking_speed_mean)
+    params.children_walking_speed_mean_entry.place(relx=0.9, rely=0.34, anchor="w")
 
     
 
-    elder_walking_velocity_min_label = tk.Label(right_frame, text="Elder walking mean velocity (cm/s):")
-    elder_walking_velocity_min_label.place(relx=0.5, rely=0.41, anchor="w")
-    params.elder_walking_velocity_min_entry = tk.Entry(right_frame, width=3)
-    params.elder_walking_velocity_min_entry.insert(0, params.elder_walking_velocity_min)
-    params.elder_walking_velocity_min_entry.place(relx=0.9, rely=0.41, anchor="w")
+    elder_walking_speed_min_label = tk.Label(right_frame, text="Elder walking mean speed (cm/s):")
+    elder_walking_speed_min_label.place(relx=0.5, rely=0.41, anchor="w")
+    params.elder_walking_speed_min_entry = tk.Entry(right_frame, width=3)
+    params.elder_walking_speed_min_entry.insert(0, params.elder_walking_speed_min)
+    params.elder_walking_speed_min_entry.place(relx=0.9, rely=0.41, anchor="w")
 
-    elder_walking_velocity_max_label = tk.Label(right_frame, text="Elder walking mean velocity (cm/s):")
-    elder_walking_velocity_max_label.place(relx=0.5, rely=0.48, anchor="w")
-    params.elder_walking_velocity_max_entry = tk.Entry(right_frame, width=3)
-    params.elder_walking_velocity_max_entry.insert(0, params.elder_walking_velocity_max)
-    params.elder_walking_velocity_max_entry.place(relx=0.9, rely=0.48, anchor="w")
+    elder_walking_speed_max_label = tk.Label(right_frame, text="Elder walking mean speed (cm/s):")
+    elder_walking_speed_max_label.place(relx=0.5, rely=0.48, anchor="w")
+    params.elder_walking_speed_max_entry = tk.Entry(right_frame, width=3)
+    params.elder_walking_speed_max_entry.insert(0, params.elder_walking_speed_max)
+    params.elder_walking_speed_max_entry.place(relx=0.9, rely=0.48, anchor="w")
 
-    elder_walking_velocity_mean_label = tk.Label(right_frame, text="Elder walking mean velocity (cm/s):")
-    elder_walking_velocity_mean_label.place(relx=0.5, rely=0.55, anchor="w")
-    params.elder_walking_velocity_mean_entry = tk.Entry(right_frame, width=3)
-    params.elder_walking_velocity_mean_entry.insert(0, params.elder_walking_velocity_mean)
-    params.elder_walking_velocity_mean_entry.place(relx=0.9, rely=0.55, anchor="w")
+    elder_walking_speed_mean_label = tk.Label(right_frame, text="Elder walking mean speed (cm/s):")
+    elder_walking_speed_mean_label.place(relx=0.5, rely=0.55, anchor="w")
+    params.elder_walking_speed_mean_entry = tk.Entry(right_frame, width=3)
+    params.elder_walking_speed_mean_entry.insert(0, params.elder_walking_speed_mean)
+    params.elder_walking_speed_mean_entry.place(relx=0.9, rely=0.55, anchor="w")
 
 
 
@@ -239,21 +239,21 @@ def param_save_button_logic(root, params):
     # adv
     params.step_time = int(params.step_time_entry.get())
     params.waiting_area_length = int(params.waiting_area_length_entry.get())
-    params.ped_walking_velocity_min_entry = int(params.ped_walking_velocity_min_entry.get())
-    params.ped_walking_velocity_max_entry = int(params.ped_walking_velocity_max_entry.get())
-    params.ped_walking_velocity_mean_entry = int(params.ped_walking_velocity_mean_entry.get())
-    params.wheelchair_rolling_velocity_min = int(params.wheelchair_rolling_velocity_min_entry.get())
-    params.wheelchair_rolling_velocity_max = int(params.wheelchair_rolling_velocity_max_entry.get())
-    params.wheelchair_rolling_velocity_mean = int(params.wheelchair_rolling_velocity_mean_entry.get())
-    params.crutches_user_walking_velocity_min = int(params.crutches_user_walking_velocity_min_entry.get())
-    params.crutches_user_walking_velocity_max = int(params.crutches_user_walking_velocity_max_entry.get())
-    params.crutches_user_walking_velocity_mean = int(params.crutches_user_walking_velocity_mean_entry.get())
-    params.children_walking_velocity_min = int(params.children_walking_velocity_min_entry.get())
-    params.children_walking_velocity_max = int(params.children_walking_velocity_max_entry.get())
-    params.children_walking_velocity_mean = int(params.children_walking_velocity_mean_entry.get())
-    params.elder_walking_velocity_min = int(params.elder_walking_velocity_min_entry.get())
-    params.elder_walking_velocity_max = int(params.elder_walking_velocity_max_entry.get())
-    params.elder_walking_velocity_mean = int(params.elder_walking_velocity_mean_entry.get())
+    params.ped_walking_speed_min_entry = int(params.ped_walking_speed_min_entry.get())
+    params.ped_walking_speed_max_entry = int(params.ped_walking_speed_max_entry.get())
+    params.ped_walking_speed_mean_entry = int(params.ped_walking_speed_mean_entry.get())
+    params.wheelchair_rolling_speed_min = int(params.wheelchair_rolling_speed_min_entry.get())
+    params.wheelchair_rolling_speed_max = int(params.wheelchair_rolling_speed_max_entry.get())
+    params.wheelchair_rolling_speed_mean = int(params.wheelchair_rolling_speed_mean_entry.get())
+    params.crutches_user_walking_speed_min = int(params.crutches_user_walking_speed_min_entry.get())
+    params.crutches_user_walking_speed_max = int(params.crutches_user_walking_speed_max_entry.get())
+    params.crutches_user_walking_speed_mean = int(params.crutches_user_walking_speed_mean_entry.get())
+    params.children_walking_speed_min = int(params.children_walking_speed_min_entry.get())
+    params.children_walking_speed_max = int(params.children_walking_speed_max_entry.get())
+    params.children_walking_speed_mean = int(params.children_walking_speed_mean_entry.get())
+    params.elder_walking_speed_min = int(params.elder_walking_speed_min_entry.get())
+    params.elder_walking_speed_max = int(params.elder_walking_speed_max_entry.get())
+    params.elder_walking_speed_mean = int(params.elder_walking_speed_mean_entry.get())
 
 
 
@@ -261,11 +261,11 @@ def param_save_button_logic(root, params):
             or params.wheelchair_amount_lr < 0 or params.wheelchair_amount_rl < 0 or params.crutches_user_amount_lr < 0 or params.crutches_user_amount_rl < 0 \
             or params.children_amount_lr < 0 or params.children_amount_rl < 0 or params.elder_amount_lr < 0 or params.elder_amount_rl < 0 \
             or params.step_time <= 0 or params.waiting_area_length <=0 \
-            or params.ped_walking_velocity_min <= 0 or params.ped_walking_velocity_max <= 0 or params.ped_walking_velocity_mean <= 0 \
-            or params.wheelchair_rolling_velocity_min <= 0 or params.wheelchair_rolling_velocity_max <= 0 or params.wheelchair_rolling_velocity_mean <= 0 \
-            or params.crutches_user_walking_velocity_min <= 0 or params.crutches_user_walking_velocity_max <= 0 or params.crutches_user_walking_velocity_mean <= 0 \
-            or params.children_walking_velocity_min <= 0 or params.children_walking_velocity_max <= 0 or params.children_walking_velocity_mean <= 0 \
-            or params.elder_walking_velocity_min <= 0 or params.elder_walking_velocity_max <= 0 or params.elder_walking_velocity_mean <= 0:
+            or params.ped_walking_speed_min <= 0 or params.ped_walking_speed_max <= 0 or params.ped_walking_speed_mean <= 0 \
+            or params.wheelchair_rolling_speed_min <= 0 or params.wheelchair_rolling_speed_max <= 0 or params.wheelchair_rolling_speed_mean <= 0 \
+            or params.crutches_user_walking_speed_min <= 0 or params.crutches_user_walking_speed_max <= 0 or params.crutches_user_walking_speed_mean <= 0 \
+            or params.children_walking_speed_min <= 0 or params.children_walking_speed_max <= 0 or params.children_walking_speed_mean <= 0 \
+            or params.elder_walking_speed_min <= 0 or params.elder_walking_speed_max <= 0 or params.elder_walking_speed_mean <= 0:
         messagebox.showinfo(title="Alert", message="Invalid arguments!")
         param_save_button_func(root, params)
 
@@ -281,11 +281,11 @@ def param_save_button_logic(root, params):
         + "\n\n\nAdvanced parameters:"
         + "\nstep_time: " + str(params.step_time)
         + "\nwaiting_area_length: " + str(params.waiting_area_length)
-        + "\nped_walking_velocity: min: " + str(params.ped_walking_velocity_min) + " max: " + str(params.ped_walking_velocity_max) + " mean: " + str(params.ped_walking_velocity_mean)
-        + "\nwheelchair_rolling_velocity: min: " + str(params.wheelchair_rolling_velocity_min) + " max: " + str(params.wheelchair_rolling_velocity_max) + " mean: " + str(params.wheelchair_rolling_velocity_mean)
-        + "\ncrutches_user_walking_velocity: min: " + str(params.crutches_user_walking_velocity_min) + " max: " + str(params.crutches_user_walking_velocity_max) + " mean: " + str(params.crutches_user_walking_velocity_mean)
-        + "\nchildren_walking_velocity: min: " + str(params.children_walking_velocity_min) + " max: " + str(params.children_walking_velocity_max) + " mean: " + str(params.children_walking_velocity_mean)
-        + "\nelder_walking_velocity: min: " + str(params.elder_walking_velocity_min) + " max: " + str(params.elder_walking_velocity_max) + " mean: " + str(params.elder_walking_velocity_mean)
+        + "\nped_walking_speed: min: " + str(params.ped_walking_speed_min) + " max: " + str(params.ped_walking_speed_max) + " mean: " + str(params.ped_walking_speed_mean)
+        + "\nwheelchair_rolling_speed: min: " + str(params.wheelchair_rolling_speed_min) + " max: " + str(params.wheelchair_rolling_speed_max) + " mean: " + str(params.wheelchair_rolling_speed_mean)
+        + "\ncrutches_user_walking_speed: min: " + str(params.crutches_user_walking_speed_min) + " max: " + str(params.crutches_user_walking_speed_max) + " mean: " + str(params.crutches_user_walking_speed_mean)
+        + "\nchildren_walking_speed: min: " + str(params.children_walking_speed_min) + " max: " + str(params.children_walking_speed_max) + " mean: " + str(params.children_walking_speed_mean)
+        + "\nelder_walking_speed: min: " + str(params.elder_walking_speed_min) + " max: " + str(params.elder_walking_speed_max) + " mean: " + str(params.elder_walking_speed_mean)
         )
 
 

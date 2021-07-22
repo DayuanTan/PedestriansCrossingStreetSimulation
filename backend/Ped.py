@@ -11,7 +11,7 @@ class Ped:
         self.y = 0
         self.type = type # one of {"ped", "wheelchair", "crutches_user", "child", "elder"}
         self.direction = direction # one of {"left2right", "right2left"}
-        self.velocity = self.set_velocity(type, params)
+        self.speed = self.set_speed(type, params)
         self.radius_standing = params.radius_of_space_occupied_when_standing[type]
         self.radius_moving = params.radius_of_space_occupied_when_moving[type]
         self.status = "standing" # one of {"standing", "moving", "finished"}
@@ -23,17 +23,17 @@ class Ped:
         
 
 
-    def set_velocity(self, type, params) -> int:
+    def set_speed(self, type, params) -> int:
         if type == "ped":
-            return np.random.normal(params.ped_walking_velocity_mean, params.ped_walking_velocity_sigma, 1)[0]
+            return np.random.normal(params.ped_walking_speed_mean, params.ped_walking_speed_sigma, 1)[0]
         elif type == "wheelchair":
-            return np.random.normal(params.wheelchair_rolling_velocity_mean, params.wheelchair_rolling_velocity_sigma, 1)[0]
+            return np.random.normal(params.wheelchair_rolling_speed_mean, params.wheelchair_rolling_speed_sigma, 1)[0]
         elif type == "crutches_user":
-            return np.random.normal(params.crutches_user_walking_velocity_mean, params.crutches_user_walking_velocity_sigma, 1)[0]
+            return np.random.normal(params.crutches_user_walking_speed_mean, params.crutches_user_walking_speed_sigma, 1)[0]
         elif type == "child":
-            return np.random.normal(params.children_walking_velocity_mean, params.children_walking_velocity_sigma, 1)[0]
+            return np.random.normal(params.children_walking_speed_mean, params.children_walking_speed_sigma, 1)[0]
         elif type == "elder":
-            return np.random.normal(params.elder_walking_velocity_mean, params.elder_walking_velocity_sigma, 1)[0]
+            return np.random.normal(params.elder_walking_speed_mean, params.elder_walking_speed_sigma, 1)[0]
 
     def set_initial_standing_position(self, params):
         is_conflict = True
@@ -79,7 +79,7 @@ class Ped:
         for another in used_all_peds:
             if mode == "moving" and (another.status == "finished"):
                 continue
-            if another.status == self.status and another.x == self.x and another.y == self.y and another.direction == self.direction and another.velocity == self.velocity:
+            if another.status == self.status and another.x == self.x and another.y == self.y and another.direction == self.direction and another.speed == self.speed:
                 continue
             if "debug" in params.log_keywords: print("is_newposition_conflicted another: ", another.status)
             distance = math.sqrt((newx - another.x)**2 + (newy - another.y)**2)
@@ -96,19 +96,19 @@ class Ped:
 
     def generate_100_newpositions(self, params, counter):
         all_newpositions = list()
-        farthest_newx = (self.x + self.velocity * params.step_time) if self.direction == "left2right" else (self.x - self.velocity * params.step_time)
+        farthest_newx = (self.x + self.speed * params.step_time) if self.direction == "left2right" else (self.x - self.speed * params.step_time)
         farthest_newy = self.y
         all_newpositions.append([farthest_newx, farthest_newy])
         if "debug" in params.log_keywords: print("-----------\nfarthest_newx, farthest_newy:  ",  farthest_newx, farthest_newy)
 
-        offset = self.velocity * params.step_time / 100
+        offset = self.speed * params.step_time / 100
         for i in range(1 + counter, 99):
             newx = farthest_newx - offset * i if self.direction == "left2right" else farthest_newx + offset * i
-            circle_radius_sq = (self.velocity * params.step_time - offset * counter) ** 2
+            circle_radius_sq = (self.speed * params.step_time - offset * counter) ** 2
             x_x0_sq = (newx - self.x)**2
             if "debug" in params.log_keywords: 
-                print("-----------\nself.velocity:  ",self.velocity)
-                print("self.velocity * params.step_time: ", self.velocity * params.step_time)
+                print("-----------\nself.speed:  ",self.speed)
+                print("self.speed * params.step_time: ", self.speed * params.step_time)
                 print("newx : ", newx, " self.x: ", self.x )
                 print("circle_radius_sq : ", circle_radius_sq )
                 print("x_x0_sq: ",  x_x0_sq)

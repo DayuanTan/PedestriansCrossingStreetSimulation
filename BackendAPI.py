@@ -20,44 +20,44 @@ class BackendAPI:
 
         for i in range(0, params.ped_amount_lr):
             params.all_peds_lr.append(Ped.Ped("ped", "left2right", params))
-            if "debug" in params.log_keywords: print("Direc: ",  params.all_peds_lr[i].direction, " Coor: ", params.all_peds_lr[i].x, params.all_peds_lr[i].y, params.all_peds_lr[i].type, params.all_peds_lr[i].velocity)
+            if "debug" in params.log_keywords: print("Direc: ",  params.all_peds_lr[i].direction, " Coor: ", params.all_peds_lr[i].x, params.all_peds_lr[i].y, params.all_peds_lr[i].type, params.all_peds_lr[i].speed)
         for i in range(0, params.wheelchair_amount_lr):
             params.all_peds_lr.append(Ped.Ped("wheelchair", "left2right", params))
             curr_ctr = params.ped_amount_lr
-            if "debug" in params.log_keywords: print("Direc: ",  params.all_peds_lr[i+curr_ctr].direction, " Coor: ", params.all_peds_lr[i+curr_ctr].x, params.all_peds_lr[i+curr_ctr].y, params.all_peds_lr[i+curr_ctr].type, params.all_peds_lr[i+curr_ctr].velocity)
+            if "debug" in params.log_keywords: print("Direc: ",  params.all_peds_lr[i+curr_ctr].direction, " Coor: ", params.all_peds_lr[i+curr_ctr].x, params.all_peds_lr[i+curr_ctr].y, params.all_peds_lr[i+curr_ctr].type, params.all_peds_lr[i+curr_ctr].speed)
         for i in range(0, params.crutches_user_amount_lr):
             params.all_peds_lr.append(Ped.Ped("crutches_user", "left2right", params))
             curr_ctr = params.ped_amount_lr + params.wheelchair_amount_lr
-            if "debug" in params.log_keywords: print("Direc: ",  params.all_peds_lr[i+curr_ctr].direction, " Coor: ", params.all_peds_lr[i+curr_ctr].x, params.all_peds_lr[i+curr_ctr].y, params.all_peds_lr[i+curr_ctr].type, params.all_peds_lr[i+curr_ctr].velocity)
+            if "debug" in params.log_keywords: print("Direc: ",  params.all_peds_lr[i+curr_ctr].direction, " Coor: ", params.all_peds_lr[i+curr_ctr].x, params.all_peds_lr[i+curr_ctr].y, params.all_peds_lr[i+curr_ctr].type, params.all_peds_lr[i+curr_ctr].speed)
         for i in range(0, params.children_amount_lr):
             params.all_peds_lr.append(Ped.Ped("child", "left2right", params))
             curr_ctr = params.ped_amount_lr + params.wheelchair_amount_lr + params.crutches_user_amount_lr
-            if "debug" in params.log_keywords: print("Direc: ",  params.all_peds_lr[i+curr_ctr].direction, " Coor: ", params.all_peds_lr[i+curr_ctr].x, params.all_peds_lr[i+curr_ctr].y, params.all_peds_lr[i+curr_ctr].type, params.all_peds_lr[i+curr_ctr].velocity)
+            if "debug" in params.log_keywords: print("Direc: ",  params.all_peds_lr[i+curr_ctr].direction, " Coor: ", params.all_peds_lr[i+curr_ctr].x, params.all_peds_lr[i+curr_ctr].y, params.all_peds_lr[i+curr_ctr].type, params.all_peds_lr[i+curr_ctr].speed)
         for i in range(0, params.elder_amount_lr):
             params.all_peds_lr.append(Ped.Ped("elder", "left2right", params))
             curr_ctr = params.ped_amount_lr + params.wheelchair_amount_lr + params.crutches_user_amount_lr + params.children_amount_lr
-            if "debug" in params.log_keywords: print("Direc: ",  params.all_peds_lr[i+curr_ctr].direction, " Coor: ", params.all_peds_lr[i+curr_ctr].x, params.all_peds_lr[i+curr_ctr].y, params.all_peds_lr[i+curr_ctr].type, params.all_peds_lr[i+curr_ctr].velocity)
+            if "debug" in params.log_keywords: print("Direc: ",  params.all_peds_lr[i+curr_ctr].direction, " Coor: ", params.all_peds_lr[i+curr_ctr].x, params.all_peds_lr[i+curr_ctr].y, params.all_peds_lr[i+curr_ctr].type, params.all_peds_lr[i+curr_ctr].speed)
 
         for i in range(0, params.ped_amount_rl):
             params.all_peds_rl.append(Ped.Ped("ped", "right2left", params))
             curr_ctr = 0
-            if "debug" in params.log_keywords: print("Direc: ",  params.all_peds_rl[i+curr_ctr].direction, " Coor: ", params.all_peds_rl[i+curr_ctr].x, params.all_peds_rl[i+curr_ctr].y, params.all_peds_rl[i+curr_ctr].type, params.all_peds_rl[i+curr_ctr].velocity)
+            if "debug" in params.log_keywords: print("Direc: ",  params.all_peds_rl[i+curr_ctr].direction, " Coor: ", params.all_peds_rl[i+curr_ctr].x, params.all_peds_rl[i+curr_ctr].y, params.all_peds_rl[i+curr_ctr].type, params.all_peds_rl[i+curr_ctr].speed)
         for i in range(0, params.wheelchair_amount_rl):
             params.all_peds_rl.append(Ped.Ped("wheelchair", "right2left", params))
             curr_ctr = params.ped_amount_rl
-            if "debug" in params.log_keywords: print("Direc: ",  params.all_peds_rl[i+curr_ctr].direction, " Coor: ", params.all_peds_rl[i+curr_ctr].x, params.all_peds_rl[i+curr_ctr].y, params.all_peds_rl[i+curr_ctr].type, params.all_peds_rl[i+curr_ctr].velocity)
+            if "debug" in params.log_keywords: print("Direc: ",  params.all_peds_rl[i+curr_ctr].direction, " Coor: ", params.all_peds_rl[i+curr_ctr].x, params.all_peds_rl[i+curr_ctr].y, params.all_peds_rl[i+curr_ctr].type, params.all_peds_rl[i+curr_ctr].speed)
         for i in range(0, params.crutches_user_amount_rl):
             params.all_peds_rl.append(Ped.Ped("crutches_user", "right2left", params))
             curr_ctr = params.ped_amount_rl + params.wheelchair_amount_rl
-            if "debug" in params.log_keywords: print("Direc: ",  params.all_peds_rl[i+curr_ctr].direction, " Coor: ", params.all_peds_rl[i+curr_ctr].x, params.all_peds_rl[i+curr_ctr].y, params.all_peds_rl[i+curr_ctr].type, params.all_peds_rl[i+curr_ctr].velocity)
+            if "debug" in params.log_keywords: print("Direc: ",  params.all_peds_rl[i+curr_ctr].direction, " Coor: ", params.all_peds_rl[i+curr_ctr].x, params.all_peds_rl[i+curr_ctr].y, params.all_peds_rl[i+curr_ctr].type, params.all_peds_rl[i+curr_ctr].speed)
         for i in range(0, params.children_amount_rl):
             params.all_peds_rl.append(Ped.Ped("child", "right2left", params))
             curr_ctr = params.ped_amount_rl + params.wheelchair_amount_rl + params.crutches_user_amount_rl
-            if "debug" in params.log_keywords: print("Direc: ",  params.all_peds_rl[i+curr_ctr].direction, " Coor: ", params.all_peds_rl[i+curr_ctr].x, params.all_peds_rl[i+curr_ctr].y, params.all_peds_rl[i+curr_ctr].type, params.all_peds_rl[i+curr_ctr].velocity)
+            if "debug" in params.log_keywords: print("Direc: ",  params.all_peds_rl[i+curr_ctr].direction, " Coor: ", params.all_peds_rl[i+curr_ctr].x, params.all_peds_rl[i+curr_ctr].y, params.all_peds_rl[i+curr_ctr].type, params.all_peds_rl[i+curr_ctr].speed)
         for i in range(0, params.elder_amount_rl):
             params.all_peds_rl.append(Ped.Ped("elder", "right2left", params))
             curr_ctr = params.ped_amount_rl + params.wheelchair_amount_rl + params.crutches_user_amount_rl + params.children_amount_rl
-            if "debug" in params.log_keywords: print("Direc: ",  params.all_peds_rl[i+curr_ctr].direction, " Coor: ", params.all_peds_rl[i+curr_ctr].x, params.all_peds_rl[i+curr_ctr].y, params.all_peds_rl[i+curr_ctr].type, params.all_peds_rl[i+curr_ctr].velocity)
+            if "debug" in params.log_keywords: print("Direc: ",  params.all_peds_rl[i+curr_ctr].direction, " Coor: ", params.all_peds_rl[i+curr_ctr].x, params.all_peds_rl[i+curr_ctr].y, params.all_peds_rl[i+curr_ctr].type, params.all_peds_rl[i+curr_ctr].speed)
 
 
         params.all_peds = params.all_peds_lr + params.all_peds_rl
